@@ -114,12 +114,14 @@ void csabase::PPObserver::do_skip_file(std::string const& from,
     onSkipFile(from, file);
 }
 
+/*
 void csabase::PPObserver::do_file_not_found(std::string const& file)
 {
     std::string msg("do_file_not_found(" + file + ")");
     Debug d(msg.c_str());
     onFileNotFound(file);
 }
+*/
 
 void csabase::PPObserver::do_other_file(std::string const& file,
                                         PPCallbacks::FileChangeReason reason)
@@ -267,6 +269,7 @@ void csabase::PPObserver::FileSkipped(FileEntryRef const& file,
 
 // -----------------------------------------------------------------------------
 
+/*
 bool csabase::PPObserver::FileNotFound(llvm::StringRef name,
                                        llvm::SmallVectorImpl<char>& path)
 {
@@ -275,6 +278,7 @@ bool csabase::PPObserver::FileNotFound(llvm::StringRef name,
     do_file_not_found(name.str());
     return false;
 }
+*/
 
 // -----------------------------------------------------------------------------
 
@@ -561,16 +565,16 @@ void csabase::PPObserver::Context()
 }
 
 void csabase::PPObserver::InclusionDirective(
-                                     SourceLocation              HashLoc,
-                                     const Token&                IncludeTok,
-                                     llvm::StringRef             FileName,
-                                     bool                        IsAngled,
-                                     CharSourceRange             FilenameRange,
-                                     const FileEntry            *File,
-                                     llvm::StringRef             SearchPath,
-                                     llvm::StringRef             RelativePath,
-                                     const Module               *Imported,
-                                     SrcMgr::CharacteristicKind  FileType)
+                                    SourceLocation               HashLoc,
+                                    const Token&                 IncludeTok,
+                                    llvm::StringRef              FileName,
+                                    bool                         IsAngled,
+                                    CharSourceRange              FilenameRange,
+                                    llvm::Optional<FileEntryRef> File,
+                                    llvm::StringRef              SearchPath,
+                                    llvm::StringRef              RelativePath,
+                                    const Module                *Imported,
+                                    SrcMgr::CharacteristicKind   FileType)
 {
     onPPInclusionDirective(HashLoc, IncludeTok, FileName, IsAngled,
                            FilenameRange, File, SearchPath, RelativePath,

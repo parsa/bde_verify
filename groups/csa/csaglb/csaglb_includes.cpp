@@ -41,7 +41,7 @@ struct report : Report<IncludesData>
                     StringRef,
                     bool,
                     CharSourceRange,
-                    const FileEntry            *,
+                    Optional<FileEntryRef>,
                     StringRef,
                     StringRef,
                     const clang::Module        *,
@@ -95,14 +95,14 @@ void report::operator()(SourceLocation Loc, SourceLocation IfLoc)
                 inclusion.d_definedGuard = OffRange(10);
             }
             if (!inclusion.d_fe) {
-                const DirectoryLookup *curDir = 0;
+                //const DirectoryLookup *curDir = 0;
                 inclusion.d_fe =
                     p.LookupFile(fsl,
                                  a.get_source(inclusion.d_file),
                                  a.get_source(inclusion.d_fullFile)[0] == '<',
                                  nullptr,
                                  nullptr,
-                                 &curDir,
+                                 nullptr,
                                  nullptr,
                                  nullptr,
                                  nullptr,
@@ -119,7 +119,7 @@ void report::operator()(SourceLocation              HashLoc,
                         StringRef                   FileName,
                         bool                        IsAngled,
                         CharSourceRange             FilenameRange,
-                        const FileEntry            *File,
+                        Optional<FileEntryRef>      File,
                         StringRef                   SearchPath,
                         StringRef                   RelativePath,
                         const clang::Module        *Imported,
@@ -138,20 +138,7 @@ void report::operator()(SourceLocation              HashLoc,
     inclusion.d_file = key;
     inclusion.d_fullRange = SourceRange(HashLoc, FilenameRange.getEnd());
     if (File) {
-        // inclusion.d_fe = FileEntryRef(FileName, *File);
-        const DirectoryLookup *curDir = 0;
-        inclusion.d_fe =
-            p.LookupFile(fsl,
-                         a.get_source(inclusion.d_file),
-                         a.get_source(inclusion.d_fullFile)[0] == '<',
-                         nullptr,
-                         nullptr,
-                         &curDir,
-                         nullptr,
-                         nullptr,
-                         nullptr,
-                         nullptr,
-                         nullptr);
+        inclusion.d_fe = File;
     }
 }
 

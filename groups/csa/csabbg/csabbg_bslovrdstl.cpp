@@ -548,16 +548,16 @@ struct report : public RecursiveASTVisitor<report>
         // specified 'fid', and in files which include it if not dependent on
         // BSL_OVERRIDES_STD, to the specified 'name'.
 
-    void operator()(SourceLocation              where,
-                    const Token&                inc,
-                    llvm::StringRef             name,
-                    bool                        angled,
-                    CharSourceRange             namerange,
-                    const FileEntry            *entry,
-                    llvm::StringRef             path,
-                    llvm::StringRef             relpath,
-                    const Module               *imported,
-                    SrcMgr::CharacteristicKind  fileType);
+    void operator()(SourceLocation               where,
+                    const Token&                 inc,
+                    llvm::StringRef              name,
+                    bool                         angled,
+                    CharSourceRange              namerange,
+                    llvm::Optional<FileEntryRef> entry,
+                    llvm::StringRef              path,
+                    llvm::StringRef              relpath,
+                    const Module                *imported,
+                    SrcMgr::CharacteristicKind   fileType);
         // Preprocessor callback for included file.
 
     void map_file(std::string name);
@@ -820,16 +820,16 @@ void report::change_include(FileID fid, llvm::StringRef name)
 }
 
 // InclusionDirective
-void report::operator()(SourceLocation              where,
-                        const Token&                inc,
-                        llvm::StringRef             name,
-                        bool                        angled,
-                        CharSourceRange             namerange,
-                        const FileEntry            *entry,
-                        llvm::StringRef             path,
-                        llvm::StringRef             relpath,
-                        const Module               *imported,
-                        SrcMgr::CharacteristicKind  fileType)
+void report::operator()(SourceLocation               where,
+                        const Token&                 inc,
+                        llvm::StringRef              name,
+                        bool                         angled,
+                        CharSourceRange              namerange,
+                        llvm::Optional<FileEntryRef> entry,
+                        llvm::StringRef              path,
+                        llvm::StringRef              relpath,
+                        const Module                *imported,
+                        SrcMgr::CharacteristicKind   fileType)
 {
     SourceManager& m = d_analyser.manager();
     Location loc(m, where);

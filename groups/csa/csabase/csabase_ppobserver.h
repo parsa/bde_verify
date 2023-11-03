@@ -10,6 +10,7 @@
 #include <clang/Lex/PPCallbacks.h>
 #include <clang/Lex/Pragma.h>
 #include <llvm/ADT/ArrayRef.h>
+#include <llvm/ADT/Optional.h>
 #include <llvm/ADT/StringRef.h>
 #include <stack>
 #include <string>
@@ -117,23 +118,23 @@ public:
 
     utils::event<decltype(&Base::FileSkipped)> onPPFileSkipped;
 
-    bool FileNotFound(llvm::StringRef              FileName,
-                      llvm::SmallVectorImpl<char> &RecoveryPath)
-    override;
+    //bool FileNotFound(llvm::StringRef              FileName,
+    //                  llvm::SmallVectorImpl<char> &RecoveryPath)
+    //override;
 
-    utils::event<decltype(&Base::FileNotFound)> onPPFileNotFound;
+    //utils::event<decltype(&Base::FileNotFound)> onPPFileNotFound;
 
     void InclusionDirective(
-                         clang::SourceLocation              HashLoc,
-                         const clang::Token&                IncludeTok,
-                         llvm::StringRef                    FileName,
-                         bool                               IsAngled,
-                         clang::CharSourceRange             FilenameRange,
-                         const clang::FileEntry            *File,
-                         llvm::StringRef                    SearchPath,
-                         llvm::StringRef                    RelativePath,
-                         const clang::Module               *Imported,
-                         clang::SrcMgr::CharacteristicKind  FileType) override;
+                        clang::SourceLocation               HashLoc,
+                        const clang::Token&                 IncludeTok,
+                        llvm::StringRef                     FileName,
+                        bool                                IsAngled,
+                        clang::CharSourceRange              FilenameRange,
+                        llvm::Optional<clang::FileEntryRef> File,
+                        llvm::StringRef                     SearchPath,
+                        llvm::StringRef                     RelativePath,
+                        const clang::Module                *Imported,
+                        clang::SrcMgr::CharacteristicKind   FileType) override;
 
     utils::event<decltype(&Base::InclusionDirective)> onPPInclusionDirective;
 
@@ -325,7 +326,7 @@ private:
                        std::string const &,
                        std::string const &);
     void do_skip_file(std::string const&, std::string const&);
-    void do_file_not_found(std::string const&);
+    //void do_file_not_found(std::string const&);
     void
     do_other_file(std::string const &, clang::PPCallbacks::FileChangeReason);
     void do_ident(clang::SourceLocation, std::string const&);

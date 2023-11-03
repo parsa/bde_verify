@@ -10,9 +10,9 @@ Build-Depends:
     gcc-build-base,
     aspell,
     aspell-en,
-    llvm-14.0,
-    clang-14.0,
-    libclang-14.0-dev,
+    llvm-15.0,
+    clang-15.0,
+    libclang-15.0-dev,
     libncurses5-dev,
     libz-dev
 Standards-Version: 3.8.4
@@ -30,6 +30,6 @@ Depends: ${libgcc-Depends},
          libncurses5
 
 Package: libbde-verify-dev
-Depends: llvm-14.0-dev
+Depends: llvm-15.0-dev
 Architecture: amd64 solaris10-sparc
 Description: bde_verify base library and headers
