@@ -27,7 +27,8 @@ Depends: ${libgcc-Depends},
          aspell,
          aspell-en,
          libz1,
-         libncurses5
+         libncurses5,
+         which
 
 Package: libbde-verify-dev
 Depends: llvm-15.0-dev
