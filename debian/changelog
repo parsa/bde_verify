@@ -1,3 +1,10 @@
+bde-verify (1.3.29) infrastructure-unstable; urgency=low
+
+  * c209413 Adding which dependency (#74)
+  * b01ded4 Update README.md (#73)
+
+ -- Sakshi Jain <sjain644@bloomberg.net>  Tue, 21 May 2024 14:33:31 +0100
+
 bde-verify (1.3.28) unstable; urgency=low
 
   * 1112686 Update to llvm-15 (#72)
