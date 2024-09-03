@@ -185,4 +185,9 @@ csabbg_midreturn.t.cpp:245:17: warning: MR01: Mid-function 'return' requires '//
                 ^
 csabbg_midreturn.t.cpp:245:17: note: MR01: Correct text is
                 return n;                                             // RETURN
-35 warnings generated.
+csabbg_midreturn.t.cpp:252:21: warning: MR01: Mid-function 'return' requires '// RETURN' comment
+                    return 1;
+                    ^
+csabbg_midreturn.t.cpp:252:21: note: MR01: Correct text is
+                    return 1;                                         // RETURN
+36 warnings generated.

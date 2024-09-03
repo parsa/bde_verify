@@ -245,6 +245,18 @@ namespace bde_verify
                 return n;
             }
         }
+
+        void lambda_converted_to_function_pointer() {
+            int (*x)(int) = [](int arg) {
+                if (arg == 1) {
+                    return 1;
+                }
+                if (arg == 2) {
+                    return 2;                                         // RETURN
+                }
+                return 3;
+            };
+        }
     }
 }
 

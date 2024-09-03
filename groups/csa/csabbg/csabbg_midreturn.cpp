@@ -92,10 +92,22 @@ struct report : Report<data>
             return;                                                   // RETURN
         }
 
+        auto func = d_analyser.get_parent<FunctionDecl>(ret);
+        if (auto *cxxRecord = llvm::dyn_cast<CXXRecordDecl>(
+                func->getDeclContext())) {
+            if (cxxRecord->isLambda()) {
+                // Ignore everything inside an implicitly generated lambda class
+                // except for the call operator.  E.g. ignore the implicit
+                // conversion operator, see {DRQS 171313583}.
+                if (cxxRecord->getLambdaCallOperator() != func) {
+                    return;                                           // RETURN
+                }
+            }
+        }
+
         // If the statement is contained in a function template specialization
         // (even nested within local classes) ignore it - the original in the
         // template will be processed.
-        auto func = d_analyser.get_parent<FunctionDecl>(ret);
         auto lambda = d_analyser.get_parent<LambdaExpr>(ret);
         d_data.d_last_returns.insert(
             last_return((lambda ? lambda : func->getBody())->children()));
