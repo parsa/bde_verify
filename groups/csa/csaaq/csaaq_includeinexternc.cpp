@@ -159,7 +159,7 @@ void report::operator()()
                                        : a.get_source(f.second.d_file);
 
         if (!lsd ||
-            lsd->getLanguage() != LinkageSpecDecl::lang_c ||
+            lsd->getLanguage() != LinkageSpecLanguageIDs::C ||
             !d.d_prop[file.str()].isValid() ||
             a.is_system_header(sl) ||
             a.is_system_header(lsd) ||

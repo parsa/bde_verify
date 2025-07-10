@@ -306,7 +306,7 @@ bool csabase::Analyser::is_system_header(llvm::StringRef file)
 
     const auto& hs = compiler().getPreprocessor().getHeaderSearchInfo();
     for (auto i = hs.system_dir_begin(); i != hs.system_dir_end(); ++i) {
-        if (file.startswith(i->getName())) {
+        if (file.starts_with(i->getName())) {
             return is_system_header_[file.str()] = true;
         }
     }
@@ -342,7 +342,7 @@ bool csabase::Analyser::is_standard_namespace(std::string const& ns) const
         rsns.split(vsns, " ", -1, false);
         bool found = false;
         for (auto s : vsns) {
-            if (rns.startswith(s) &&
+            if (rns.starts_with(s) &&
                 (rns.size() == s.size() ||
                  id.find_first_of(rns[s.size()]) == id.npos)) {
                 found = true;
@@ -382,7 +382,7 @@ bool csabase::Analyser::is_component(SourceLocation loc) const
 
 bool csabase::Analyser::is_test_driver(llvm::StringRef file) const
 {
-    return file.endswith(".t.cpp") /* || file.endswith(".g.cpp") */;
+    return file.ends_with(".t.cpp") /* || file.ends_with(".g.cpp") */;
 }
 
 bool csabase::Analyser::is_test_driver() const
@@ -394,9 +394,9 @@ bool csabase::Analyser::is_test_driver() const
 bool csabase::Analyser::is_main() const
 {
     llvm::StringRef file = toplevel();
-    return file.endswith(".m.cpp") ||
-           file.endswith(".t.cpp") ||
-           file.endswith(".g.cpp");
+    return file.ends_with(".m.cpp") ||
+           file.ends_with(".t.cpp") ||
+           file.ends_with(".g.cpp");
 }
 
 // -----------------------------------------------------------------------------
@@ -597,7 +597,7 @@ namespace
         return lookup_name(
             sema,
             sema.getASTContext().getTranslationUnitDecl(),
-            llvm::StringRef(name).startswith("::") ? name.substr(2) : name);
+            llvm::StringRef(name).starts_with("::") ? name.substr(2) : name);
     }
 }
 

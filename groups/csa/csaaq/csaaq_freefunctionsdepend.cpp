@@ -8,7 +8,6 @@
 #include <csabase_registercheck.h>
 #include <csabase_report.h>
 #include <csabase_visitor.h>
-#include <map>
 
 using namespace csabase;
 using namespace clang;
@@ -86,9 +85,9 @@ bool report::depends(SourceLocation sl, QualType type)
     auto rd = type->getAsTagDecl();
     if (auto tspt = type->getAs<TemplateSpecializationType>()) {
         if (auto td = tspt->getTemplateName().getAsTemplateDecl()) {
-            unsigned n = tspt->getNumArgs();
+            unsigned n = tspt->template_arguments().size();
             for (unsigned i = 0; i < n; ++i) {
-                auto &ta = tspt->getArg(i);
+                auto &ta = tspt->template_arguments()[i];
                 if (ta.getKind() == ta.Type &&
                     depends(sl, ta.getAsType())) {
                     return true;

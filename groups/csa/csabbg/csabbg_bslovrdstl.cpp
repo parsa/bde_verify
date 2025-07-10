@@ -1,5 +1,17 @@
 // csabbg_bslovrdstl.cpp                                              -*-C++-*-
 
+#include <csabase_analyser.h>
+#include <csabase_config.h>
+#include <csabase_debug.h>
+#include <csabase_diagnostic_builder.h>
+#include <csabase_filenames.h>
+#include <csabase_location.h>
+#include <csabase_ppobserver.h>
+#include <csabase_registercheck.h>
+#include <csabase_util.h>
+#include <csabase_visitor.h>
+
+
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
 #include <clang/AST/DeclCXX.h>
@@ -13,32 +25,26 @@
 #include <clang/Lex/PPCallbacks.h>
 #include <clang/Lex/Token.h>
 #include <clang/Tooling/Refactoring.h>
-#include <csabase_analyser.h>
-#include <csabase_config.h>
-#include <csabase_debug.h>
-#include <csabase_diagnostic_builder.h>
-#include <csabase_filenames.h>
-#include <csabase_location.h>
-#include <csabase_ppobserver.h>
-#include <csabase_registercheck.h>
-#include <csabase_util.h>
-#include <csabase_visitor.h>
+
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
 #include <llvm/ADT/Twine.h>
 #include <llvm/Support/Casting.h>
 #include <llvm/Support/Regex.h>
 #include <llvm/Support/raw_ostream.h>
-#include <stddef.h>
+
+#include <utility>
+#include <utils/event.hpp>
+#include <utils/function.hpp>
+
 #include <cctype>
 #include <map>
 #include <set>
 #include <string>
-#include <utility>
-#include <utils/event.hpp>
-#include <utils/function.hpp>
 #include <vector>
 #include <tuple>
+
+#include <stddef.h>
 namespace clang { class FileEntry; }
 namespace clang { class MacroArgs; }
 namespace clang { class Module; }
@@ -553,7 +559,7 @@ struct report : public RecursiveASTVisitor<report>
                     llvm::StringRef              name,
                     bool                         angled,
                     CharSourceRange              namerange,
-                    llvm::Optional<FileEntryRef> entry,
+                    OptionalFileEntryRef         entry,
                     llvm::StringRef              path,
                     llvm::StringRef              relpath,
                     const Module                *imported,
@@ -696,7 +702,7 @@ FileType report::classify(llvm::StringRef name,
         return p.second;                                              // RETURN
     }
 
-    if (name.startswith("bsl_stdhdrs_")) {
+    if (name.starts_with("bsl_stdhdrs_")) {
         return p.second = e_SPC;                                      // RETURN
     }
 
@@ -707,7 +713,7 @@ FileType report::classify(llvm::StringRef name,
     }
 
     for (const char *prefix : good_bsl) {
-        if (name.startswith(prefix)) {
+        if (name.starts_with(prefix)) {
             return p.second = e_BSL;                                  // RETURN
         }
     }
@@ -825,7 +831,7 @@ void report::operator()(SourceLocation               where,
                         llvm::StringRef              name,
                         bool                         angled,
                         CharSourceRange              namerange,
-                        llvm::Optional<FileEntryRef> entry,
+                        OptionalFileEntryRef         entry,
                         llvm::StringRef              path,
                         llvm::StringRef              relpath,
                         const Module                *imported,
@@ -836,7 +842,7 @@ void report::operator()(SourceLocation               where,
     FileName fnw(loc.file());
     FileName fnn(name);
 
-    if (name.endswith("_version.h") || name.endswith("_ident.h") ||
+    if (name.ends_with("_version.h") || name.ends_with("_ident.h") ||
         (d_analyser.is_header(name.str()) &&
          fnw.component() == fnn.component())) {
         d_data.d_top_for_insert[m.getFileID(where)] =
@@ -1037,7 +1043,7 @@ void report::operator()(Token const&           token,
     Location loc(m, range.getBegin());
     FileType ft = classify(loc.file());
 
-    if (macro.endswith("_IDENT_RCSID") || macro.endswith("_PRAGMA_ONCE")) {
+    if (macro.ends_with("_IDENT_RCSID") || macro.ends_with("_PRAGMA_ONCE")) {
         d_data.d_top_for_insert[m.getFileID(token.getLocation())] =
             d_analyser.get_line_range(
                            d_analyser.get_line_range(token.getLocation())
@@ -1080,7 +1086,7 @@ void report::operator()(Token const&           token,
 
 bool report::is_guard(llvm::StringRef guard)
 {
-    return guard.startswith("INCLUDED_");
+    return guard.starts_with("INCLUDED_");
 }
 
 bool report::is_guard(const Token& token)
@@ -1289,7 +1295,7 @@ bool report::in_noinc_region(SourceLocation sl)
     DeclContext::decl_iterator e = dc->decls_end();
     for (; b != e; ++b) {
         LinkageSpecDecl *lsd = llvm::dyn_cast<LinkageSpecDecl>(*b);
-        if (lsd && lsd->getLanguage() == lsd->lang_c &&
+        if (lsd && lsd->getLanguage() == LinkageSpecLanguageIDs::C &&
             m.isBeforeInTranslationUnit(
                 lsd->getSourceRange().getBegin(), sl) &&
             m.isBeforeInTranslationUnit(sl, lsd->getSourceRange().getEnd())) {
@@ -1357,8 +1363,8 @@ void report::add_include(FileID             fid,
         }
         llvm::StringRef inc = pfvi_inc->size() ? pfvi_inc->front()->bsl : pn;
         if (!d_analyser.is_component_header(inc.str()) &&
-            !inc.endswith("_version.h") &&
-            !inc.endswith("_ident.h") &&
+            !inc.ends_with("_version.h") &&
+            !inc.ends_with("_ident.h") &&
             (pfvi_inc->size() && pfvi_name->size() ?
                  pfvi_inc->front()->bsl > pfvi_name->front()->bsl :
                  inc > name)) {
@@ -1426,7 +1432,7 @@ void report::require_file(std::string     name,
     sl = m.getExpansionLoc(sl);
 
     FileID fid = m.getFileID(sl);
-    while (classify(m.getFileEntryForID(fid)->getName()) == e_SPC) {
+    while (classify(m.getFileEntryRefForID(fid)->getName()) == e_SPC) {
         sl = m.getIncludeLoc(fid);
         fid = m.getDecomposedIncludedLoc(fid).first;
     }

@@ -37,7 +37,7 @@ namespace
                         std::string const& name) const
         {
             FileName fn(name);
-            if (!fn.name().startswith("m_") &&
+            if (!fn.name().starts_with("m_") &&
                 fn.extra() != ".m" &&
                 fn.extra() != ".g" &&
                 d_analyser.is_toplevel(name)) {

@@ -1,5 +1,9 @@
 // csamisc_unnamed_temporary.cpp                                      -*-C++-*-
 
+#include <csabase_analyser.h>
+#include <csabase_registercheck.h>
+#include <csabase_util.h>
+
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
@@ -11,13 +15,12 @@
 #include <clang/Basic/SourceManager.h>
 #include <clang/Frontend/CompilerInstance.h>
 #include <clang/Lex/Preprocessor.h>
-#include <csabase_analyser.h>
-#include <csabase_registercheck.h>
-#include <csabase_util.h>
-#include <llvm/ADT/Optional.h>
+
 #include <llvm/ADT/StringRef.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <string>
 
 namespace clang { class ExprWithCleanups; }

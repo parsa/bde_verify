@@ -1,5 +1,6 @@
 .nojekyll
 .uor_include_cache
+.vscode
 *~
 Linux-clang++
 Linux-g++

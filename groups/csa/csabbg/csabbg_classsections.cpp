@@ -1,14 +1,5 @@
 // csabbg_classsections.cpp                                           -*-C++-*-
 
-#include <clang/AST/Decl.h>
-#include <clang/AST/DeclBase.h>
-#include <clang/AST/DeclCXX.h>
-#include <clang/AST/DeclTemplate.h>
-#include <clang/AST/DeclarationName.h>
-#include <clang/AST/Stmt.h>
-#include <clang/Basic/SourceLocation.h>
-#include <clang/Basic/SourceManager.h>
-#include <clang/Basic/Specifiers.h>
 #include <csabase_analyser.h>
 #include <csabase_config.h>
 #include <csabase_debug.h>
@@ -19,19 +10,30 @@
 #include <csabase_report.h>
 #include <csabase_util.h>
 #include <csaglb_comments.h>
-#include <ctype.h>
+
+#include <clang/AST/Decl.h>
+#include <clang/AST/DeclBase.h>
+#include <clang/AST/DeclCXX.h>
+#include <clang/AST/DeclTemplate.h>
+#include <clang/AST/DeclarationName.h>
+#include <clang/AST/Stmt.h>
+#include <clang/Basic/SourceLocation.h>
+#include <clang/Basic/SourceManager.h>
+#include <clang/Basic/Specifiers.h>
+
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/Casting.h>
-#include <stddef.h>
-#include <stdlib.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <cctype>
-#include <map>
 #include <string>
-#include <utility>
 #include <vector>
+
+#include <stddef.h>
+#include <stdlib.h>
 
 namespace csabase { class Visitor; }
 
@@ -294,7 +296,7 @@ void report::operator()(const Decl *decl)
                       !fd->isMain() &&
                       !fd->getLocation().isMacroID() &&
                       fd->getTemplatedKind() == fd->TK_NonTemplate &&
-                      fd->getLinkageInternal() == Linkage::ExternalLinkage;
+                      fd->getLinkageInternal() == Linkage::External;
         }
         else if (decl->getDeclContext()->isRecord()) {
             auto rd = llvm::dyn_cast<CXXRecordDecl>(decl->getDeclContext());
@@ -564,26 +566,26 @@ void report::operator()()
 
     for (SourceRange range : a.attachment<CommentData>().d_allComments) {
         llvm::StringRef comment = a.get_source(range);
-        if (!comment.startswith("//")) {
+        if (!comment.starts_with("//")) {
             continue;
         }
         comment            = comment.drop_front(2).trim();
         bool saysPublic    = false;
         bool saysPrivate   = false;
         bool saysProtected = false;
-        if (comment.startswith_insensitive("public ")) {
+        if (comment.starts_with_insensitive("public ")) {
             comment    = comment.drop_front(6).trim();
             saysPublic = true;
         }
-        else if (comment.startswith_insensitive("private ")) {
+        else if (comment.starts_with_insensitive("private ")) {
             comment     = comment.drop_front(7).trim();
             saysPrivate = true;
         }
-        else if (comment.startswith_insensitive("protected ")) {
+        else if (comment.starts_with_insensitive("protected ")) {
             comment       = comment.drop_front(9).trim();
             saysProtected = true;
         }
-        if (comment.startswith_insensitive("instance ")) {
+        if (comment.starts_with_insensitive("instance ")) {
             comment = comment.drop_front(8).trim();
         }
         if (comment.size() && std::isupper(comment[0] & 0xFFU)) {

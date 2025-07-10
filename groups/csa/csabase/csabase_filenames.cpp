@@ -42,7 +42,7 @@ void csabase::FileName::reset(llvm::StringRef sr)
         *this = i->second;
         return;                                                       // RETURN
     }
-    if (sr.startswith("<")) {  // Not a real file
+    if (sr.starts_with("<")) {  // Not a real file
         name_ = full_ = sr.str();
         tag_ = "<";
     }

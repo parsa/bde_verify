@@ -4,6 +4,7 @@
 #define FRAMEWORK_DIAGNOSTIC_BUILDER_HPP
 
 #include <csabase_debug.h>
+
 #include <clang/Basic/LLVM.h>
 #include <clang/Basic/Diagnostic.h>
 
@@ -23,7 +24,7 @@ class diagnostic_builder
     explicit operator bool() const;
 
   private:
-    llvm::Optional<clang::DiagnosticBuilder> builder_;
+    std::optional<clang::DiagnosticBuilder> builder_;
 };
 
 

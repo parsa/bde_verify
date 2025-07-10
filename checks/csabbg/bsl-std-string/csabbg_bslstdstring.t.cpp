@@ -1,5 +1,3 @@
-#undef BSL_OVERRIDES_STD
-
 #include <bsl_string.h>
 #include <string>
 

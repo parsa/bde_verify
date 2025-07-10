@@ -60,7 +60,7 @@ void report::operator()(const NamedDecl *decl)
         }
     }
     if (!a.is_test_driver() &&
-        decl->getLinkageInternal() == Linkage::ExternalLinkage &&
+        decl->getLinkageInternal() == Linkage::External &&
         !decl->isInAnonymousNamespace() &&
         !decl->isInStdNamespace() &&
         !decl->isCXXClassMember() &&

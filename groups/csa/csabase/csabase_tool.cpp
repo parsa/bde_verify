@@ -3,17 +3,7 @@
 #include <csabase_tool.h>
 #include <csabase_debug.h>
 #include <csabase_diagnostic_builder.h>
-#include <llvm/Option/ArgList.h>
-#include <llvm/Support/Allocator.h>
-#include <llvm/Support/Host.h>
-#include <llvm/Support/ManagedStatic.h>
-#include <llvm/Support/Path.h>
-#include <llvm/Support/Process.h>
-#include <llvm/Support/Program.h>
-#include <llvm/Support/Signals.h>
-#include <llvm/Support/StringSaver.h>
-#include <llvm/Support/TargetSelect.h>
-#include <llvm/Support/Timer.h>
+
 #include <clang/Driver/Compilation.h>
 #include <clang/Driver/Driver.h>
 #include <clang/Driver/Options.h>
@@ -26,6 +16,19 @@
 #include <clang/FrontendTool/Utils.h>
 #include <clang/Tooling/CompilationDatabase.h>
 #include <clang/Tooling/Tooling.h>
+
+#include <llvm/Option/ArgList.h>
+#include <llvm/Support/Allocator.h>
+#include <llvm/Support/ManagedStatic.h>
+#include <llvm/Support/Path.h>
+#include <llvm/Support/Process.h>
+#include <llvm/Support/Program.h>
+#include <llvm/Support/Signals.h>
+#include <llvm/Support/StringSaver.h>
+#include <llvm/Support/TargetSelect.h>
+#include <llvm/Support/Timer.h>
+#include <llvm/TargetParser/Host.h>
+
 #include <deque>
 #include <memory>
 #include <set>
@@ -179,7 +182,7 @@ int csabase::run(int argc_, const char **argv_)
         if (arg == "-cc1") {
             break;
         }
-        else if (arg.startswith("--p=")) {
+        else if (arg.starts_with("--p=")) {
             arg = arg.drop_front(4);
             Compilations = CompilationDatabase::autoDetectFromDirectory(
                 arg, ErrorMessage);
@@ -194,7 +197,7 @@ int csabase::run(int argc_, const char **argv_)
             defined.insert(def.split('=').first.str());
             ++i;
         }
-        else if (arg.startswith("-D")) {
+        else if (arg.starts_with("-D")) {
             defined.insert(arg.drop_front(2).split('=').first.str());
         }
         else if (arg == "-U") {
@@ -202,7 +205,7 @@ int csabase::run(int argc_, const char **argv_)
             defined.insert(def.str());
             ++i;
         }
-        else if (arg.startswith("-U")) {
+        else if (arg.starts_with("-U")) {
             defined.insert(arg.drop_front(2).str());
         }
         else if (arg == "-I") {
@@ -210,7 +213,7 @@ int csabase::run(int argc_, const char **argv_)
             included.insert(dir.str());
             ++i;
         }
-        else if (arg.startswith("-I")) {
+        else if (arg.starts_with("-I")) {
             included.insert(arg.drop_front(2).str());
         }
         else if (after_dashes) {
@@ -283,13 +286,13 @@ int csabase::run(int argc_, const char **argv_)
     StringSaver Saver(Alloc);
 
     bool MarkEOLs = argv.size() <= 1 ||
-                    !StringRef(argv[1]).startswith("-cc1");
-    cl::ExpandResponseFiles(Saver, cl::TokenizeGNUCommandLine, argv, MarkEOLs);
+                    !StringRef(argv[1]).starts_with("-cc1");
+    cl::ExpandResponseFiles(Saver, cl::TokenizeGNUCommandLine, argv);
 
     auto FirstArg = std::find_if(argv.begin() + 1,
                                  argv.end(),
                                  [](const char *A) { return A != nullptr; });
-    if (FirstArg != argv.end() && StringRef(*FirstArg).startswith("-cc1")) {
+    if (FirstArg != argv.end() && StringRef(*FirstArg).starts_with("-cc1")) {
         // If -cc1 came from a response file, remove the EOL sentinels.
         if (MarkEOLs) {
             auto newEnd = std::remove(argv.begin(), argv.end(), nullptr);
@@ -319,7 +322,7 @@ int csabase::run(int argc_, const char **argv_)
     StringRef ExFile = StringRef(sys::path::filename(Path));
 
     if (ForVersion) {
-        StringRef Name = ExFile.drop_back(ExFile.endswith("_bin") ? 4 : 0);
+        StringRef Name = ExFile.drop_back(ExFile.ends_with("_bin") ? 4 : 0);
         *ForVersion << Name << " version " BDE_VERIFY_VERSION " based on\n";
     }
 
@@ -351,9 +354,10 @@ int csabase::run(int argc_, const char **argv_)
 #undef  CCF
 #define CCF(D, X, O)                                                          \
     if ((D.X = !!::getenv(#O))) D.X##Filename = ::getenv(#O "_FILE")
-    CCF(TheDriver, CCPrintOptions, CC_PRINT_OPTIONS);
-    CCF(TheDriver, CCPrintHeaders, CC_PRINT_HEADERS);
-    CCF(TheDriver, CCLogDiagnostics, CC_LOG_DIAGNOSTICS);
+
+    //CCF(TheDriver, CCPrintOptions, CC_PRINT_OPTIONS);
+    //CCF(TheDriver, CCPrintHeaders, CC_PRINT_HEADERS);
+    //CCF(TheDriver, CCLogDiagnostics, CC_LOG_DIAGNOSTICS);
 #undef CCF
 
     SetInstallDir(argv, TheDriver, CanonicalPrefixes);

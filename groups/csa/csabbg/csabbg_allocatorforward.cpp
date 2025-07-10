@@ -1,5 +1,15 @@
 // csabbg_allocatorforward.cpp                                        -*-C++-*-
 
+#include <csabase_analyser.h>
+#include <csabase_debug.h>
+#include <csabase_diagnostic_builder.h>
+#include <csabase_filenames.h>
+#include <csabase_registercheck.h>
+#include <csabase_report.h>
+#include <csabase_util.h>
+#include <csaglb_comments.h>
+#include <csaglb_includes.h>
+
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
@@ -19,20 +29,14 @@
 #include <clang/Basic/SourceLocation.h>
 #include <clang/Basic/Specifiers.h>
 #include <clang/Sema/Sema.h>
-#include <csabase_analyser.h>
-#include <csabase_debug.h>
-#include <csabase_diagnostic_builder.h>
-#include <csabase_filenames.h>
-#include <csabase_registercheck.h>
-#include <csabase_report.h>
-#include <csabase_util.h>
-#include <csaglb_comments.h>
-#include <csaglb_includes.h>
+
 #include <llvm/ADT/APSInt.h>
-#include <llvm/ADT/Optional.h>
 #include <llvm/Support/Casting.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
+#include <iostream>
 #include <map>
 #include <set>
 #include <sstream>
@@ -694,8 +698,8 @@ void report::match_nested_allocator_trait(const BoundNodes& nodes)
               type.find(", BloombergLP::bslmf::UsesAllocatorArgT") !=
                   type.npos)) {
         auto ts = qt->getAs<TemplateSpecializationType>();
-        if (ts && ts->getNumArgs() == 3) {
-            const TemplateArgument& ta = ts->getArg(2);
+        if (ts && ts->template_arguments().size() == 3) {
+            const TemplateArgument& ta = ts->template_arguments()[2];
             if (!ta.isDependent()) {
                 bool value, found;
                 if (ta.getKind() == TemplateArgument::Integral) {
@@ -1253,7 +1257,7 @@ bool report::should_transform(const CXXRecordDecl *record)
     if (a.is_component(record)) {
         llvm::StringRef to_transform =
             a.config()->value("allocator_transform", record->getLocation());
-        llvm::StringRef name = record->getNameAsString();
+        llvm::StringRef name = record->getName();
         if (name.size()) {
             for (size_t colons = 0;; colons += 2) {
                 if (contains_word(to_transform, name.drop_front(colons)) !=
@@ -1544,11 +1548,11 @@ void report::check_not_forwarded(data::Ctors::const_iterator begin,
                                decl->isCopyConstructor()    ? "copy "    :
                                decl->isMoveConstructor()    ? "move "    :
                                                               "";
+            auto key = std::make_pair(type, Range(m, decl->getSourceRange()));
 
-            auto key = std::make_pair(std::string(type),
-                                      Range(m, decl->getSourceRange()));
             if (!found && !processed.count(key)) {
                 processed.insert(key);
+
                 if (decl->isUserProvided()) {
                     a.report(decl, check_name, "AC01",
                              "Class %0 " + type +
@@ -1598,11 +1602,11 @@ void report::include(SourceLocation loc, llvm::StringRef name)
     }
 
     FullSourceLoc ins_loc(loc, m);
-    FileName ins(ins_loc.getFileEntry()->getName());
+    FileName ins(ins_loc.getFileEntryRef()->getName());
 
     for (const auto& f : a.attachment<IncludesData>().d_inclusions) {
         if (FileName(f.second.d_fe->getName()).name() == name) {
-            FileName src(f.first.getFileEntry()->getName());
+            FileName src(f.first.getFileEntryRef()->getName());
             if (src.name() == ins.name() ||
                 a.is_component_header(src.name().str())) {
                 d.added_[ins_loc.getFileID()].insert(name);
@@ -1680,7 +1684,7 @@ bool report::write_allocator_trait(const CXXRecordDecl *record, bool bslma)
     include(record->getLocation(), "bslmf_nestedtraitdeclaration.h");
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -1738,7 +1742,7 @@ bool report::write_allocator_method_declaration(const CXXRecordDecl    *record,
         a.get_source_line(ins_loc).take_until([](char c) { return c != ' '; });
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -1782,7 +1786,7 @@ bool report::write_allocator_method_definition(const CXXRecordDecl    *record,
         a.get_source_line(ins_loc).take_until([](char c) { return c != ' '; });
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -1860,7 +1864,7 @@ bool report::write_in_class_allocator_method_definition(
         a.get_source_line(ins_loc).take_until([](char c) { return c != ' '; });
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -1931,7 +1935,7 @@ bool report::write_d_allocator_p_declaration(const CXXRecordDecl *record)
         a.get_source_line(ins_loc).take_until([](char c) { return c != ' '; });
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -1977,7 +1981,7 @@ bool report::write_ctor_with_allocator_definition(
     llvm::StringRef indent;
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 
@@ -2158,7 +2162,7 @@ bool report::write_ctor_with_allocator_declaration(
         return false;
 
     llvm::StringRef blp = "BloombergLP::";
-    if (llvm::StringRef(record->getQualifiedNameAsString()).startswith(blp)) {
+    if (llvm::StringRef(record->getQualifiedNameAsString()).starts_with(blp)) {
         blp = "";
     }
 

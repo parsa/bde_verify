@@ -2,7 +2,7 @@
 
 void f()
 {
-    volatile int a = 0;
+    int a = 0;
 
     do
     a = 1;

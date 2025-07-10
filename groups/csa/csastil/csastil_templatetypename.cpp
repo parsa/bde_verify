@@ -1,5 +1,10 @@
 // csastil_templatetypename.cpp                                       -*-C++-*-
 
+#include <csabase_analyser.h>
+#include <csabase_debug.h>
+#include <csabase_registercheck.h>
+#include <csabase_util.h>
+
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
@@ -11,17 +16,15 @@
 #include <clang/ASTMatchers/ASTMatchers.h>
 #include <clang/ASTMatchers/ASTMatchersInternal.h>
 #include <clang/Basic/SourceLocation.h>
-#include <csabase_analyser.h>
-#include <csabase_debug.h>
-#include <csabase_registercheck.h>
-#include <csabase_util.h>
-#include <llvm/ADT/Optional.h>
+
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/Casting.h>
 #include <llvm/Support/Regex.h>
-#include <stddef.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
+#include <stddef.h>
 #include <string>
 
 namespace csabase { class PPObserver; }
@@ -157,7 +160,7 @@ void report::checkTemplateParameters(TemplateParameterList const* parms)
             }
             if (parm->getIdentifier()) {
                 llvm::StringRef name = parm->getName();
-                if (!name.startswith("t_")) {
+                if (!name.starts_with("t_")) {
                     if (name.size() == 1) {
                         d_analyser.report(parm, check_name, "TY02",
                             "Template parameter uses single-letter name");

@@ -1,304 +1,304 @@
 csabbg_functioncontract.t.cpp:11:18: warning: FD01: Function declaration requires contract
-            void ambry() const;
-                 ^~~~~
+   11 |             void ambry() const;
+      |                  ^~~~~
 csabbg_functioncontract.t.cpp:13:18: warning: FD01: Function declaration requires contract
-            void diarrhetic(int faceplate) throw();
-                 ^~~~~~~~~~
+   13 |             void diarrhetic(int faceplate) throw();
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:15:18: warning: FD01: Function declaration requires contract
-            void akee(int) const throw();
-                 ^~~~
+   15 |             void akee(int) const throw();
+      |                  ^~~~
 csabbg_functioncontract.t.cpp:17:18: warning: FD01: Function declaration requires contract
-            void unwitherable(int cocksfoot = 0);
-                 ^~~~~~~~~~~~
+   17 |             void unwitherable(int cocksfoot = 0);
+      |                  ^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:19:18: warning: FD01: Function declaration requires contract
-            void undersovereign(int = 0);
-                 ^~~~~~~~~~~~~~
+   19 |             void undersovereign(int = 0);
+      |                  ^~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:21:18: warning: FD01: Function declaration requires contract
-            void etymologized(int windowpane, int mayer);
-                 ^~~~~~~~~~~~
+   21 |             void etymologized(int windowpane, int mayer);
+      |                  ^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:23:18: warning: FD01: Function declaration requires contract
-            void rpt(int panelled, int);
-                 ^~~
+   23 |             void rpt(int panelled, int);
+      |                  ^~~
 csabbg_functioncontract.t.cpp:25:18: warning: FD01: Function declaration requires contract
-            void calumnious(int deferred, int trepanning = 0);
-                 ^~~~~~~~~~
+   25 |             void calumnious(int deferred, int trepanning = 0);
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:27:18: warning: FD01: Function declaration requires contract
-            void tensimeter(int cisterna, int = 0);
-                 ^~~~~~~~~~
+   27 |             void tensimeter(int cisterna, int = 0);
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:29:18: warning: FD01: Function declaration requires contract
-            void rhaetian(int, int heathenized);
-                 ^~~~~~~~
+   29 |             void rhaetian(int, int heathenized);
+      |                  ^~~~~~~~
 csabbg_functioncontract.t.cpp:31:18: warning: FD01: Function declaration requires contract
-            void recalcitrancy(int, int);
-                 ^~~~~~~~~~~~~
+   31 |             void recalcitrancy(int, int);
+      |                  ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:33:18: warning: FD01: Function declaration requires contract
-            void contracted(int, int cupid = 0);
-                 ^~~~~~~~~~
+   33 |             void contracted(int, int cupid = 0);
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:35:18: warning: FD01: Function declaration requires contract
-            void bludgeoner(int, int = 0);
-                 ^~~~~~~~~~
+   35 |             void bludgeoner(int, int = 0);
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:37:18: warning: FD01: Function declaration requires contract
-            void interjaculating(int improvability = 0, int erotes = 0);
-                 ^~~~~~~~~~~~~~~
+   37 |             void interjaculating(int improvability = 0, int erotes = 0);
+      |                  ^~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:39:18: warning: FD01: Function declaration requires contract
-            void antired(int undertruck = 0, int = 0);
-                 ^~~~~~~
+   39 |             void antired(int undertruck = 0, int = 0);
+      |                  ^~~~~~~
 csabbg_functioncontract.t.cpp:41:18: warning: FD01: Function declaration requires contract
-            void aqueduct(int, int ouch);
-                 ^~~~~~~~
+   41 |             void aqueduct(int, int ouch);
+      |                  ^~~~~~~~
 csabbg_functioncontract.t.cpp:43:18: warning: FD01: Function declaration requires contract
-            void wiredancing(int, int nauplial = 0);
-                 ^~~~~~~~~~~
+   43 |             void wiredancing(int, int nauplial = 0);
+      |                  ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:45:18: warning: FD01: Function declaration requires contract
-            void rejustified(int, int);
-                 ^~~~~~~~~~~
+   45 |             void rejustified(int, int);
+      |                  ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:47:18: warning: FD01: Function declaration requires contract
-            void perishless(int, int = 0);
-                 ^~~~~~~~~~
+   47 |             void perishless(int, int = 0);
+      |                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:49:18: warning: FD01: Function declaration requires contract
-            void spokeswoman(int = 0, int roebuck = 0);
-                 ^~~~~~~~~~~
+   49 |             void spokeswoman(int = 0, int roebuck = 0);
+      |                  ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:51:18: warning: FD01: Function declaration requires contract
-            void transisthmian(int = 0, int = 0);
-                 ^~~~~~~~~~~~~
+   51 |             void transisthmian(int = 0, int = 0);
+      |                  ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:58:32: warning: FD03: Parameter 'mujik' is not documented in the function contract
-            void gandharan(int mujik) throw();
-                           ~~~~^~~~~
+   58 |             void gandharan(int mujik) throw();
+      |                            ~~~~^~~~~
 csabbg_functioncontract.t.cpp:62:53: warning: FD06: Call out the first appearance of a parameter in a function contract using the word 'specified' or 'specify'
-                // This function does nothing with 'peisenor'.
-                                                    ^~~~~~~~
+   62 |                 // This function does nothing with 'peisenor'.
+      |                                                     ^~~~~~~~
 csabbg_functioncontract.t.cpp:65:66: warning: FD04: Parameter 'bovaristic' is not single-quoted in the function contract
-                // This function does nothing with the specified bovaristic.
-                                                                 ^~~~~~~~~~
+   65 |                 // This function does nothing with the specified bovaristic.
+      |                                                                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:68:52: warning: FD06: Call out the first appearance of a parameter in a function contract using the word 'specified' or 'specify'
-                // This function does nothing with preinvited.
-                                                   ^~~~~~~~~~
+   68 |                 // This function does nothing with preinvited.
+      |                                                    ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:68:52: warning: FD04: Parameter 'preinvited' is not single-quoted in the function contract
-                // This function does nothing with preinvited.
-                                                   ^~~~~~~~~~
+   68 |                 // This function does nothing with preinvited.
+      |                                                    ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:73:37: warning: FD03: Parameter 'atat' is not documented in the function contract
-            void unaccomplished(int atat = 0);
-                                ~~~~^~~~~~~~
+   73 |             void unaccomplished(int atat = 0);
+      |                                 ~~~~^~~~~~~~
 csabbg_functioncontract.t.cpp:77:53: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with 'periproctal'.
-                                                    ^~~~~~~~~~~
+   77 |                 // This function does nothing with 'periproctal'.
+      |                                                     ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:80:66: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with the specified snowslide.
-                                                                 ^~~~~~~~~
+   80 |                 // This function does nothing with the specified snowslide.
+      |                                                                  ^~~~~~~~~
 csabbg_functioncontract.t.cpp:80:66: warning: FD04: Parameter 'snowslide' is not single-quoted in the function contract
-                // This function does nothing with the specified snowslide.
-                                                                 ^~~~~~~~~
+   80 |                 // This function does nothing with the specified snowslide.
+      |                                                                  ^~~~~~~~~
 csabbg_functioncontract.t.cpp:83:52: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with zakuski.
-                                                   ^~~~~~~
+   83 |                 // This function does nothing with zakuski.
+      |                                                    ^~~~~~~
 csabbg_functioncontract.t.cpp:83:52: warning: FD04: Parameter 'zakuski' is not single-quoted in the function contract
-                // This function does nothing with zakuski.
-                                                   ^~~~~~~
+   83 |                 // This function does nothing with zakuski.
+      |                                                    ^~~~~~~
 csabbg_functioncontract.t.cpp:89:39: warning: FD04: Parameter 'compellent' is not single-quoted in the function contract
-                // Optionally specify compellent.
-                                      ^~~~~~~~~~
+   89 |                 // Optionally specify compellent.
+      |                                       ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:106:34: warning: FD04: Parameter 'mermerus' is not single-quoted in the function contract
-                // The specified mermerus.
-                                 ^~~~~~~~
+  106 |                 // The specified mermerus.
+      |                                  ^~~~~~~~
 csabbg_functioncontract.t.cpp:113:52: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with meticulousness.
-                                                   ^~~~~~~~~~~~~~
+  113 |                 // This function does nothing with meticulousness.
+      |                                                    ^~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:113:52: warning: FD04: Parameter 'meticulousness' is not single-quoted in the function contract
-                // This function does nothing with meticulousness.
-                                                   ^~~~~~~~~~~~~~
+  113 |                 // This function does nothing with meticulousness.
+      |                                                    ^~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:120:53: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with 'compellent'.
-                                                    ^~~~~~~~~~
+  120 |                 // This function does nothing with 'compellent'.
+      |                                                     ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:127:36: warning: FD03: Parameter 'gabrieli' is not documented in the function contract
-            void understrapper(int gabrieli, int urdar);
-                               ~~~~^~~~~~~~
+  127 |             void understrapper(int gabrieli, int urdar);
+      |                                ~~~~^~~~~~~~
 csabbg_functioncontract.t.cpp:127:50: warning: FD03: Parameter 'urdar' is not documented in the function contract
-            void understrapper(int gabrieli, int urdar);
-                                             ~~~~^~~~~
+  127 |             void understrapper(int gabrieli, int urdar);
+      |                                              ~~~~^~~~~
 csabbg_functioncontract.t.cpp:132:66: warning: FD04: Parameter 'leucocythemia' is not single-quoted in the function contract
-                // This function does nothing with the specified leucocythemia.
-                                                                 ^~~~~~~~~~~~~
+  132 |                 // This function does nothing with the specified leucocythemia.
+      |                                                                  ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:133:29: warning: FD06: Call out the first appearance of a parameter in a function contract using the word 'specified' or 'specify'
-                // Not with overmitigated, overmitigateda, overmitigateda.
-                            ^~~~~~~~~~~~~
+  133 |                 // Not with overmitigated, overmitigateda, overmitigateda.
+      |                             ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:133:29: warning: FD04: Parameter 'overmitigated' is not single-quoted in the function contract
-                // Not with overmitigated, overmitigateda, overmitigateda.
-                            ^~~~~~~~~~~~~
+  133 |                 // Not with overmitigated, overmitigateda, overmitigateda.
+      |                             ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:134:45: warning: FD03: Parameter 'borasco' is not documented in the function contract
-            void calliope(int votaress, int borasco);
-                                        ~~~~^~~~~~~
+  134 |             void calliope(int votaress, int borasco);
+      |                                         ~~~~^~~~~~~
 csabbg_functioncontract.t.cpp:138:66: warning: FD04: Parameter 'ash' is not single-quoted in the function contract
-                // This function does nothing with the specified ash.
-                                                                 ^~~
+  138 |                 // This function does nothing with the specified ash.
+      |                                                                  ^~~
 csabbg_functioncontract.t.cpp:137:45: warning: FD03: Parameter 'hythergraph' is not documented in the function contract
-            void hypertocicity(int ash, int hythergraph);
-                                        ~~~~^~~~~~~~~~~
+  137 |             void hypertocicity(int ash, int hythergraph);
+      |                                         ~~~~^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:140:66: warning: FD04: Parameter 'radiofrequency' is not single-quoted in the function contract
-                // This function does nothing with the specified radiofrequency
-                                                                 ^~~~~~~~~~~~~~
+  140 |                 // This function does nothing with the specified radiofrequency
+      |                                                                  ^~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:141:23: warning: FD04: Parameter 'fracturable' is not single-quoted in the function contract
-                // or fracturable.
-                      ^~~~~~~~~~~
+  141 |                 // or fracturable.
+      |                       ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:143:66: warning: FD04: Parameter 'obicularis' is not single-quoted in the function contract
-                // This function does nothing with the specified obicularis or
-                                                                 ^~~~~~~~~~
+  143 |                 // This function does nothing with the specified obicularis or
+      |                                                                  ^~~~~~~~~~
 csabbg_functioncontract.t.cpp:145:46: warning: FD03: Parameter 'unhypnotised' is not documented in the function contract
-            void overflap(int nanometer, int unhypnotised);
-                                         ~~~~^~~~~~~~~~~~
+  145 |             void overflap(int nanometer, int unhypnotised);
+      |                                          ~~~~^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:149:20: warning: FD04: Parameter 'anticonfederative' is not single-quoted in the function contract
-                // anticonfederative.
-                   ^~~~~~~~~~~~~~~~~
+  149 |                 // anticonfederative.
+      |                    ^~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:154:38: warning: FD03: Parameter 'evtushenko' is not documented in the function contract
-            void tribromoethanol(int evtushenko, int);
-                                 ~~~~^~~~~~~~~~
+  154 |             void tribromoethanol(int evtushenko, int);
+      |                                  ~~~~^~~~~~~~~~
 csabbg_functioncontract.t.cpp:158:66: warning: FD04: Parameter 'rakee' is not single-quoted in the function contract
-                // This function does nothing with the specified rakee.
-                                                                 ^~~~~
+  158 |                 // This function does nothing with the specified rakee.
+      |                                                                  ^~~~~
 csabbg_functioncontract.t.cpp:162:32: warning: FD03: Parameter 'hydrodynamic' is not documented in the function contract
-            void oversewed(int hydrodynamic, int customariness = 0);
-                           ~~~~^~~~~~~~~~~~
+  162 |             void oversewed(int hydrodynamic, int customariness = 0);
+      |                            ~~~~^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:162:50: warning: FD03: Parameter 'customariness' is not documented in the function contract
-            void oversewed(int hydrodynamic, int customariness = 0);
-                                             ~~~~^~~~~~~~~~~~~~~~~
+  162 |             void oversewed(int hydrodynamic, int customariness = 0);
+      |                                              ~~~~^~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:167:66: warning: FD04: Parameter 'misdefine' is not single-quoted in the function contract
-                // This function does nothing with the specified misdefine.
-                                                                 ^~~~~~~~~
+  167 |                 // This function does nothing with the specified misdefine.
+      |                                                                  ^~~~~~~~~
 csabbg_functioncontract.t.cpp:166:47: warning: FD03: Parameter 'pandiculation' is not documented in the function contract
-            void unthanked(int misdefine, int pandiculation = 0);
-                                          ~~~~^~~~~~~~~~~~~~~~~
+  166 |             void unthanked(int misdefine, int pandiculation = 0);
+      |                                           ~~~~^~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:168:48: warning: FD03: Parameter 'euhemerised' is not documented in the function contract
-            void sheatfish(int fishfinger, int euhemerised = 0);
-                                           ~~~~^~~~~~~~~~~~~~~
+  168 |             void sheatfish(int fishfinger, int euhemerised = 0);
+      |                                            ~~~~^~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:171:66: warning: FD04: Parameter 'concupiscence' is not single-quoted in the function contract
-                // This function does nothing with the specified concupiscence.
-                                                                 ^~~~~~~~~~~~~
+  171 |                 // This function does nothing with the specified concupiscence.
+      |                                                                  ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:170:46: warning: FD03: Parameter 'grok' is not documented in the function contract
-            void duea(int concupiscence, int grok = 0);
-                                         ~~~~^~~~~~~~
+  170 |             void duea(int concupiscence, int grok = 0);
+      |                                          ~~~~^~~~~~~~
 csabbg_functioncontract.t.cpp:173:66: warning: FD04: Parameter 'coleuses' is not single-quoted in the function contract
-                // This function does nothing with the specified coleuses.
-                                                                 ^~~~~~~~
+  173 |                 // This function does nothing with the specified coleuses.
+      |                                                                  ^~~~~~~~
 csabbg_functioncontract.t.cpp:174:39: warning: FD04: Parameter 'undeified' is not single-quoted in the function contract
-                // Optionally specify undeified.
-                                      ^~~~~~~~~
+  174 |                 // Optionally specify undeified.
+      |                                       ^~~~~~~~~
 csabbg_functioncontract.t.cpp:177:20: warning: FD04: Parameter 'myoneurasthenia' is not single-quoted in the function contract
-                // myoneurasthenia. Optionally, 'tyrannicide'.
-                   ^~~~~~~~~~~~~~~
+  177 |                 // myoneurasthenia. Optionally, 'tyrannicide'.
+      |                    ^~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:177:50: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // myoneurasthenia. Optionally, 'tyrannicide'.
-                                                 ^~~~~~~~~~~
+  177 |                 // myoneurasthenia. Optionally, 'tyrannicide'.
+      |                                                  ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:178:44: warning: FD03: Parameter 'ridgel' is not documented in the function contract
-            void garamond(int valadon, int ridgel = 0);
-                                       ~~~~^~~~~~~~~~
+  178 |             void garamond(int valadon, int ridgel = 0);
+      |                                        ~~~~^~~~~~~~~~
 csabbg_functioncontract.t.cpp:182:39: warning: FD04: Parameter 'hereward' is not single-quoted in the function contract
-                // Optionally specify hereward.
-                                      ^~~~~~~~
+  182 |                 // Optionally specify hereward.
+      |                                       ^~~~~~~~
 csabbg_functioncontract.t.cpp:187:30: warning: FD03: Parameter 'zestful' is not documented in the function contract
-            void sponson(int zestful, int = 0);
-                         ~~~~^~~~~~~
+  187 |             void sponson(int zestful, int = 0);
+      |                          ~~~~^~~~~~~
 csabbg_functioncontract.t.cpp:191:66: warning: FD04: Parameter 'unbaked' is not single-quoted in the function contract
-                // This function does nothing with the specified unbaked.
-                                                                 ^~~~~~~
+  191 |                 // This function does nothing with the specified unbaked.
+      |                                                                  ^~~~~~~
 csabbg_functioncontract.t.cpp:195:39: warning: FD03: Parameter 'fratry' is not documented in the function contract
-            void fearfulness(int, int fratry);
-                                  ~~~~^~~~~~
+  195 |             void fearfulness(int, int fratry);
+      |                                   ~~~~^~~~~~
 csabbg_functioncontract.t.cpp:198:66: warning: FD04: Parameter 'fluffy' is not single-quoted in the function contract
-                // This function does nothing with the specified fluffy.
-                                                                 ^~~~~~
+  198 |                 // This function does nothing with the specified fluffy.
+      |                                                                  ^~~~~~
 csabbg_functioncontract.t.cpp:205:36: warning: FD03: Parameter 'campion' is not documented in the function contract
-            void tenantry(int, int campion = 0);
-                               ~~~~^~~~~~~~~~~
+  205 |             void tenantry(int, int campion = 0);
+      |                                ~~~~^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:209:66: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // This function does nothing with the specified amphithecium.
-                                                                 ^~~~~~~~~~~~
+  209 |                 // This function does nothing with the specified amphithecium.
+      |                                                                  ^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:209:66: warning: FD04: Parameter 'amphithecium' is not single-quoted in the function contract
-                // This function does nothing with the specified amphithecium.
-                                                                 ^~~~~~~~~~~~
+  209 |                 // This function does nothing with the specified amphithecium.
+      |                                                                  ^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:212:21: warning: FD05: Call out the first appearance of an optional parameter in a function contract using the phrase 'optionally specify'
-                // 'unpopularized'.
-                    ^~~~~~~~~~~~~
+  212 |                 // 'unpopularized'.
+      |                     ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:217:35: warning: FD03: Parameter 'latinism' is not documented in the function contract
-            void predominance(int latinism = 0, int oversilence = 0);
-                              ~~~~^~~~~~~~~~~~
+  217 |             void predominance(int latinism = 0, int oversilence = 0);
+      |                               ~~~~^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:217:53: warning: FD03: Parameter 'oversilence' is not documented in the function contract
-            void predominance(int latinism = 0, int oversilence = 0);
-                                                ~~~~^~~~~~~~~~~~~~~
+  217 |             void predominance(int latinism = 0, int oversilence = 0);
+      |                                                 ~~~~^~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:220:39: warning: FD04: Parameter 'marceau' is not single-quoted in the function contract
-                // Optionally specify marceau.
-                                      ^~~~~~~
+  220 |                 // Optionally specify marceau.
+      |                                       ^~~~~~~
 csabbg_functioncontract.t.cpp:219:49: warning: FD03: Parameter 'amazon' is not documented in the function contract
-            void monorhyme(int marceau = 0, int amazon = 0);
-                                            ~~~~^~~~~~~~~~
+  219 |             void monorhyme(int marceau = 0, int amazon = 0);
+      |                                             ~~~~^~~~~~~~~~
 csabbg_functioncontract.t.cpp:221:47: warning: FD03: Parameter 'beadflush' is not documented in the function contract
-            void premiating(int litu = 0, int beadflush = 0);
-                                          ~~~~^~~~~~~~~~~~~
+  221 |             void premiating(int litu = 0, int beadflush = 0);
+      |                                           ~~~~^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:224:39: warning: FD04: Parameter 'nonlaminating' is not single-quoted in the function contract
-                // Optionally specify nonlaminating.
-                                      ^~~~~~~~~~~~~
+  224 |                 // Optionally specify nonlaminating.
+      |                                       ^~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:223:56: warning: FD03: Parameter 'dittying' is not documented in the function contract
-            void influencer(int nonlaminating = 0, int dittying = 0);
-                                                   ~~~~^~~~~~~~~~~~
+  223 |             void influencer(int nonlaminating = 0, int dittying = 0);
+      |                                                    ~~~~^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:226:39: warning: FD04: Parameter 'kwazulu' is not single-quoted in the function contract
-                // Optionally specify kwazulu and dinkier.
-                                      ^~~~~~~
+  226 |                 // Optionally specify kwazulu and dinkier.
+      |                                       ^~~~~~~
 csabbg_functioncontract.t.cpp:226:51: warning: FD04: Parameter 'dinkier' is not single-quoted in the function contract
-                // Optionally specify kwazulu and dinkier.
-                                                  ^~~~~~~
+  226 |                 // Optionally specify kwazulu and dinkier.
+      |                                                   ^~~~~~~
 csabbg_functioncontract.t.cpp:228:39: warning: FD04: Parameter 'gateless' is not single-quoted in the function contract
-                // Optionally specify gateless and 'outrigged'.
-                                      ^~~~~~~~
+  228 |                 // Optionally specify gateless and 'outrigged'.
+      |                                       ^~~~~~~~
 csabbg_functioncontract.t.cpp:229:51: warning: FD03: Parameter 'apprenticehood' is not documented in the function contract
-            void breadfruit(int stinnett = 0, int apprenticehood = 0);
-                                              ~~~~^~~~~~~~~~~~~~~~~~
+  229 |             void breadfruit(int stinnett = 0, int apprenticehood = 0);
+      |                                               ~~~~^~~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:232:55: warning: FD04: Parameter 'herbivore' is not single-quoted in the function contract
-                // Optionally specify 'unsmelted' and herbivore.
-                                                      ^~~~~~~~~
+  232 |                 // Optionally specify 'unsmelted' and herbivore.
+      |                                                       ^~~~~~~~~
 csabbg_functioncontract.t.cpp:236:39: warning: FD03: Parameter 'coronach' is not documented in the function contract
-            void noncollaboration(int coronach = 0, int = 0);
-                                  ~~~~^~~~~~~~~~~~
+  236 |             void noncollaboration(int coronach = 0, int = 0);
+      |                                   ~~~~^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:239:39: warning: FD04: Parameter 'luxuriantly' is not single-quoted in the function contract
-                // Optionally specify luxuriantly.
-                                      ^~~~~~~~~~~
+  239 |                 // Optionally specify luxuriantly.
+      |                                       ^~~~~~~~~~~
 csabbg_functioncontract.t.cpp:243:36: warning: FD03: Parameter 'consortion' is not documented in the function contract
-            void hatfield(int, int consortion);
-                               ~~~~^~~~~~~~~~
+  243 |             void hatfield(int, int consortion);
+      |                                ~~~~^~~~~~~~~~
 csabbg_functioncontract.t.cpp:246:66: warning: FD04: Parameter 'uncoarse' is not single-quoted in the function contract
-                // This function does nothing with the specified uncoarse.
-                                                                 ^~~~~~~~
+  246 |                 // This function does nothing with the specified uncoarse.
+      |                                                                  ^~~~~~~~
 csabbg_functioncontract.t.cpp:250:39: warning: FD03: Parameter 'monodactylism' is not documented in the function contract
-            void sonderclass(int, int monodactylism = 0);
-                                  ~~~~^~~~~~~~~~~~~~~~~
+  250 |             void sonderclass(int, int monodactylism = 0);
+      |                                   ~~~~^~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:253:39: warning: FD04: Parameter 'unhooted' is not single-quoted in the function contract
-                // Optionally specify unhooted.
-                                      ^~~~~~~~
+  253 |                 // Optionally specify unhooted.
+      |                                       ^~~~~~~~
 csabbg_functioncontract.t.cpp:263:47: warning: FD03: Parameter 'connotation' is not documented in the function contract
-            void pseudoreligious(int = 0, int connotation = 0);
-                                          ~~~~^~~~~~~~~~~~~~~
+  263 |             void pseudoreligious(int = 0, int connotation = 0);
+      |                                           ~~~~^~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:266:39: warning: FD04: Parameter 'monecious' is not single-quoted in the function contract
-                // Optionally specify monecious.
-                                      ^~~~~~~~~
+  266 |                 // Optionally specify monecious.
+      |                                       ^~~~~~~~~
 csabbg_functioncontract.t.cpp:276:1: warning: FD02: Function contracts should be indented 4, not -12, spaces from their function declaration
-// Way too left.
-^~~~~~~~~~~~~~~~
+  276 | // Way too left.
+      | ^~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:279:9: warning: FD02: Function contracts should be indented 4, not -4, spaces from their function declaration
-        // A lot too left.
-        ^~~~~~~~~~~~~~~~~~
+  279 |         // A lot too left.
+      |         ^~~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:282:13: warning: FD02: Function contracts should be indented 4, not 0, spaces from their function declaration
-            // Too left.
-            ^~~~~~~~~~~~
+  282 |             // Too left.
+      |             ^~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:285:16: warning: FD02: Function contracts should be indented 4, not 3, spaces from their function declaration
-               // A bit too left.
-               ^~~~~~~~~~~~~~~~~~
+  285 |                // A bit too left.
+      |                ^~~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:291:18: warning: FD02: Function contracts should be indented 4, not 5, spaces from their function declaration
-                 // A bit too right.
-                 ^~~~~~~~~~~~~~~~~~~
+  291 |                  // A bit too right.
+      |                  ^~~~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:294:63: warning: FD02: Function contracts should be indented 4, not 50, spaces from their function declaration
-                                                              // Way too right.
-                                                              ^~~~~~~~~~~~~~~~~
+  294 |                                                               // Way too right.
+      |                                                               ^~~~~~~~~~~~~~~~~
 csabbg_functioncontract.t.cpp:302:21: warning: FD01: Function declaration requires contract
-        inline void spall()
-                    ^~~~~
+  302 |         inline void spall()
+      |                     ^~~~~
 csabbg_functioncontract.t.cpp:327:36: warning: FD04: Parameter 'getabl' is not single-quoted in the function contract
-            // quotes as havoc and getabl.
-                                   ^~~~~~
+  327 |             // quotes as havoc and getabl.
+      |                                    ^~~~~~
 101 warnings generated.

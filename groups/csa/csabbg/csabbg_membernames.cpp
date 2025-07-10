@@ -22,7 +22,7 @@ static void check_private(Analyser& a, DeclaratorDecl const *decl)
     if (decl->getAccess() != AS_private &&
         rd &&
         !rd->getTemplateInstantiationPattern() &&
-        rd->getTagKind() == TTK_Class) {
+        rd->getTagKind() == clang::TagTypeKind::Class) {
         a.report(decl, check_name, "MN01",
                  "Class data members must be private");
     }
@@ -40,7 +40,7 @@ static void check_pointer(Analyser& a, DeclaratorDecl const *decl)
         return;                                                       // RETURN
     }
     bool is_pointer_type = decl->getType()->isPointerType();
-    bool is_pointer_name = decl->getName().endswith("_p");
+    bool is_pointer_name = decl->getName().ends_with("_p");
     if (is_pointer_type && !is_pointer_name) {
         a.report(decl, check_name, "MN04",
                  "Pointer member names must end in '_p'");
@@ -59,7 +59,7 @@ static void field_name(Analyser& a, FieldDecl const *decl)
     }
     if (decl->isCXXClassMember()) {
         check_private(a, decl);
-        if (decl->getName().size() && !decl->getName().startswith("d_")) {
+        if (decl->getName().size() && !decl->getName().starts_with("d_")) {
             a.report(decl, check_name, "MN02",
                      "Non-static data member names must begin with 'd_'");
         }
@@ -76,14 +76,14 @@ static void var_name(Analyser& a, VarDecl const *decl)
     if (decl->isCXXClassMember()) {
         if (!decl->getType().isConstQualified()) {
             check_private(a, decl);
-            if (!decl->getName().startswith("s_")) {
+            if (!decl->getName().starts_with("s_")) {
                 a.report(decl, check_name, "MN03",
                          "Static data member names must begin with 's_'");
             }
         }
         else {
-            if (!decl->getName().startswith("s_") &&
-                !decl->getName().startswith("k_")) {
+            if (!decl->getName().starts_with("s_") &&
+                !decl->getName().starts_with("k_")) {
                 a.report(decl, check_name, "MN03",
                          "Constant member names must begin with 's_' or 'k_'");
             }

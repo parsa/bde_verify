@@ -2,9 +2,10 @@ cmake_minimum_required(VERSION 3.16)
 
 project(bde_verify)
 
+
 set(BDE_VERIFY_VERSION_MAJOR "1")
 set(BDE_VERIFY_VERSION_MINOR "3")
-set(BDE_VERIFY_VERSION_PATCH "28")
+set(BDE_VERIFY_VERSION_PATCH "29")
 set(BDE_VERIFY_VERSION "${BDE_VERIFY_VERSION_MAJOR}.${BDE_VERIFY_VERSION_MINOR}.${BDE_VERIFY_VERSION_PATCH}")
 
 # Only support 64 bit build.
@@ -23,15 +24,16 @@ endif()
 
 set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS True)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Note that Clang transitively brings in LLVM config as REQUIRED.
+set (Clang_DIR /opt/bb/lib/llvm-18.1/lib64/cmake/clang/)
 find_package(Clang REQUIRED)
 
 message(STATUS "Found LLVM/Clang ${LLVM_PACKAGE_VERSION}")
 
-# Bring in LLVM modules that will help to setup same compilation 
+# Bring in LLVM modules that will help to setup same compilation
 # flags and link with LLVM libraries.
 list(APPEND CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
 include(AddLLVM)
@@ -233,6 +235,8 @@ if (libaspell_LIB AND libaspell_INC)
     add_definitions(-DSPELL_CHECK=1)
     target_include_directories(bde_verify_bin SYSTEM PRIVATE ${libaspell_INCLUDE_DIR})
     target_link_libraries(bde_verify_bin ${libaspell_LIB})
+else()
+    message(STATUS "Cannot find spell library. Spell checks disabled.")
 endif()
 
 

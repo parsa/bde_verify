@@ -160,7 +160,7 @@ bool is_top_level(llvm::StringRef name)
         return true;
     }
     for (auto s : top_level_prefixes()) {
-        if (name.startswith(s)) {
+        if (name.starts_with(s)) {
             return true;
         }
     }
@@ -496,7 +496,7 @@ struct report : public RecursiveASTVisitor<report>, Report<data>
                     llvm::StringRef              name,
                     bool                         angled,
                     CharSourceRange              namerange,
-                    llvm::Optional<FileEntryRef> entry,
+                    OptionalFileEntryRef         entry,
                     llvm::StringRef              path,
                     llvm::StringRef              relpath,
                     const Module                *imported,
@@ -871,7 +871,7 @@ void report::operator()(SourceLocation               where,
                         llvm::StringRef              name,
                         bool                         angled,
                         CharSourceRange              namerange,
-                        llvm::Optional<FileEntryRef> entry,
+                        OptionalFileEntryRef         entry,
                         llvm::StringRef              path,
                         llvm::StringRef              relpath,
                         const Module                *imported,
@@ -951,7 +951,7 @@ void report::operator()(Token const& token,
 
 bool report::is_guard(llvm::StringRef guard)
 {
-    return guard.startswith("INCLUDED_");
+    return guard.starts_with("INCLUDED_");
 }
 
 bool report::is_guard(const Token& token)
@@ -1006,7 +1006,7 @@ void report::operator()(SourceLocation        where,
         set_guard(tn, where);
     }
 
-    if (tn.startswith("BDE_BUILD_TARGET_") &&
+    if (tn.starts_with("BDE_BUILD_TARGET_") &&
         !a.is_component_header(std::string("bsls_buildtarget.h")) &&
         !d.d_all_includes.count("bsls_buildtarget.h")) {
         a.report(token.getLocation(), check_name, "AQK02",
@@ -1028,7 +1028,7 @@ void report::operator()(const Token&          token,
         set_guard(tn, range.getBegin());
     }
 
-    if (tn.startswith("BDE_BUILD_TARGET_") &&
+    if (tn.starts_with("BDE_BUILD_TARGET_") &&
         !a.is_component_header(std::string("bsls_buildtarget.h")) &&
         !d.d_all_includes.count("bsls_buildtarget.h")) {
         a.report(token.getLocation(), check_name, "AQK02",

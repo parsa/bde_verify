@@ -1,148 +1,148 @@
 alias.cpp:6:7: warning: SAL01: Possible strict-aliasing violation
-    g((float *)&long_val);
-      ^~~~~~~~~~~~~~~~~~
+    6 |     g((float *)&long_val);
+      |       ^~~~~~~~~~~~~~~~~~
 alias.cpp:9:7: warning: SAL01: Possible strict-aliasing violation
-    g((float &)long_val);
-      ^~~~~~~~~~~~~~~~~
+    9 |     g((float &)long_val);
+      |       ^~~~~~~~~~~~~~~~~
 alias.cpp:12:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float &)long_val);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   12 |     g((const float &)long_val);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:15:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float *)&long_val);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
+   15 |     g((const float *)&long_val);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:24:7: warning: SAL01: Possible strict-aliasing violation
-    g((long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~
+   24 |     g((long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~
 alias.cpp:25:7: warning: SAL01: Possible strict-aliasing violation
-    g((float *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~
+   25 |     g((float *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~
 alias.cpp:27:7: warning: SAL01: Possible strict-aliasing violation
-    g((long &)long_ptr);
-      ^~~~~~~~~~~~~~~~
+   27 |     g((long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~
 alias.cpp:28:7: warning: SAL01: Possible strict-aliasing violation
-    g((float &)long_ptr);
-      ^~~~~~~~~~~~~~~~~
+   28 |     g((float &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~
 alias.cpp:30:7: warning: SAL01: Possible strict-aliasing violation
-    g((const long &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~
+   30 |     g((const long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:31:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   31 |     g((const float &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:33:7: warning: SAL01: Possible strict-aliasing violation
-    g((const long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   33 |     g((const long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:34:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
+   34 |     g((const float *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:37:7: warning: SAL01: Possible strict-aliasing violation
-    g((float *)long_ptr);
-      ^~~~~~~~~~~~~~~~~
+   37 |     g((float *)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~
 alias.cpp:43:7: warning: SAL01: Possible strict-aliasing violation
-    g((long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~
+   43 |     g((long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~
 alias.cpp:44:7: warning: SAL01: Possible strict-aliasing violation
-    g((float *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~
+   44 |     g((float *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:46:7: warning: SAL01: Possible strict-aliasing violation
-    g((long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~
+   46 |     g((long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~
 alias.cpp:47:7: warning: SAL01: Possible strict-aliasing violation
-    g((float &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~
+   47 |     g((float &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~
 alias.cpp:49:7: warning: SAL01: Possible strict-aliasing violation
-    g((const long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   49 |     g((const long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:50:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   50 |     g((const float &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:52:7: warning: SAL01: Possible strict-aliasing violation
-    g((const long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   52 |     g((const long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:53:7: warning: SAL01: Possible strict-aliasing violation
-    g((const float *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   53 |     g((const float *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:55:7: warning: SAL01: Possible strict-aliasing violation
-    g((long *)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~
+   55 |     g((long *)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~
 alias.cpp:56:7: warning: SAL01: Possible strict-aliasing violation
-    g((float *)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~
+   56 |     g((float *)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~
 alias.cpp:68:7: warning: SAL01: Possible strict-aliasing violation
-    g((int (&)[1][1])long_val);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   68 |     g((int (&)[1][1])long_val);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:70:7: warning: SAL01: Possible strict-aliasing violation
-    g((int (&)[1][1])long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   70 |     g((int (&)[1][1])long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:71:7: warning: SAL01: Possible strict-aliasing violation
-    g((int (*)[1][1])long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   71 |     g((int (*)[1][1])long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:72:7: warning: SAL01: Possible strict-aliasing violation
-    g((int (&)[1][1])long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   72 |     g((int (&)[1][1])long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:73:7: warning: SAL01: Possible strict-aliasing violation
-    g((int (*)[1][1])long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   73 |     g((int (*)[1][1])long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:76:7: warning: SAL01: Possible strict-aliasing violation
-    g((long (&)[1][1])long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
+   76 |     g((long (&)[1][1])long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:78:7: warning: SAL01: Possible strict-aliasing violation
-    g((long (&)[1][1])long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   78 |     g((long (&)[1][1])long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:79:7: warning: SAL01: Possible strict-aliasing violation
-    g((long (*)[1][1])long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   79 |     g((long (*)[1][1])long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:90:7: warning: SAL01: Possible strict-aliasing violation
-    g((signed long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~
+   90 |     g((signed long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:91:7: warning: SAL01: Possible strict-aliasing violation
-    g((unsigned long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   91 |     g((unsigned long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:92:7: warning: SAL01: Possible strict-aliasing violation
-    g((signed long &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~
+   92 |     g((signed long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:93:7: warning: SAL01: Possible strict-aliasing violation
-    g((unsigned long &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~
+   93 |     g((unsigned long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:94:7: warning: SAL01: Possible strict-aliasing violation
-    g((const signed long &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   94 |     g((const signed long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:95:7: warning: SAL01: Possible strict-aliasing violation
-    g((const unsigned long &)long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   95 |     g((const unsigned long &)long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:96:7: warning: SAL01: Possible strict-aliasing violation
-    g((const signed long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   96 |     g((const signed long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:97:7: warning: SAL01: Possible strict-aliasing violation
-    g((const unsigned long *)&long_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   97 |     g((const unsigned long *)&long_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:100:7: warning: SAL01: Possible strict-aliasing violation
-    g((signed long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  100 |     g((signed long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:101:7: warning: SAL01: Possible strict-aliasing violation
-    g((unsigned long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  101 |     g((unsigned long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:102:7: warning: SAL01: Possible strict-aliasing violation
-    g((signed long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  102 |     g((signed long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:103:7: warning: SAL01: Possible strict-aliasing violation
-    g((unsigned long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  103 |     g((unsigned long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:104:7: warning: SAL01: Possible strict-aliasing violation
-    g((const signed long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  104 |     g((const signed long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:105:7: warning: SAL01: Possible strict-aliasing violation
-    g((const unsigned long &)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  105 |     g((const unsigned long &)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:106:7: warning: SAL01: Possible strict-aliasing violation
-    g((const signed long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  106 |     g((const signed long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:107:7: warning: SAL01: Possible strict-aliasing violation
-    g((const unsigned long *)&long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  107 |     g((const unsigned long *)&long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:108:7: warning: SAL01: Possible strict-aliasing violation
-    g((signed long *)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+  108 |     g((signed long *)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
 alias.cpp:109:7: warning: SAL01: Possible strict-aliasing violation
-    g((unsigned long *)long_ptr_ptr);
-      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  109 |     g((unsigned long *)long_ptr_ptr);
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 49 warnings generated.

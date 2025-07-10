@@ -35,8 +35,8 @@ public:
     size_t                column() const;
     clang::SourceLocation location() const;
 
-    bool operator< (Location const& location) const;
-    operator bool() const;
+    bool operator<(Location const& location) const;
+    explicit operator bool() const;
 };
 
 llvm::raw_ostream& operator<< (llvm::raw_ostream&, Location const&);
@@ -60,8 +60,8 @@ public:
     const Location& from() const;
     const Location& to() const;
 
-    bool operator< (Range const& range) const;
-    operator bool() const;
+    bool operator<(Range const& range) const;
+    explicit operator bool() const;
 };
 
 llvm::raw_ostream& operator<< (llvm::raw_ostream&, Range const&);

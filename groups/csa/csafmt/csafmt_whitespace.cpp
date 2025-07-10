@@ -69,7 +69,7 @@ void files::operator()(SourceLocation loc,
         while (bad_ws.match(s = buf.drop_front(offset), &matches)) {
             llvm::StringRef text = matches[0];
             size_t n = text.size();
-            if (text.endswith("\r\n")) {
+            if (text.ends_with("\r\n")) {
                 --n;
             }
             std::pair<size_t, size_t> m = mid_match(s.str(), text.str());

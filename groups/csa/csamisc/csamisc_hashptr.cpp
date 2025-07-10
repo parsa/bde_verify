@@ -9,12 +9,14 @@
 #include <clang/ASTMatchers/ASTMatchers.h>
 #include <clang/ASTMatchers/ASTMatchersInternal.h>
 #include <clang/ASTMatchers/ASTMatchersMacros.h>
+
 #include <csabase_analyser.h>
 #include <csabase_registercheck.h>
 #include <csabase_util.h>
-#include <llvm/ADT/Optional.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <string>
 
 namespace csabase { class PPObserver; }

@@ -1,14 +1,18 @@
 // csabase_ppobserver.cpp                                             -*-C++-*-
 
 #include <csabase_ppobserver.h>
+
+#include <csabase_config.h>
+#include <csabase_debug.h>
+#include <csabase_filenames.h>
+
 #include <clang/Basic/FileManager.h>
 #include <clang/Basic/SourceManager.h>
 #include <clang/Lex/Preprocessor.h>
-#include <csabase_debug.h>
-#include <csabase_filenames.h>
+
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/Support/Regex.h>
-#include <csabase_config.h>
+
 #include <utils/event.hpp>
 
 namespace clang { class IdentifierInfo; }
@@ -570,7 +574,7 @@ void csabase::PPObserver::InclusionDirective(
                                     llvm::StringRef              FileName,
                                     bool                         IsAngled,
                                     CharSourceRange              FilenameRange,
-                                    llvm::Optional<FileEntryRef> File,
+                                    OptionalFileEntryRef         File,
                                     llvm::StringRef              SearchPath,
                                     llvm::StringRef              RelativePath,
                                     const Module                *Imported,

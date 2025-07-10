@@ -1,162 +1,162 @@
 deprecated.cpp:33:5: warning: DP01: Call to deprecated function
-    f();
-    ^
+   33 |     f();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:3:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+    3 |     // !DEPRECATED!:
+      |     ^
 deprecated.cpp:34:5: warning: DP01: Call to deprecated function
-    h();
-    ^
+   34 |     h();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:35:5: warning: DP01: Call to deprecated function
-    i();
-    ^
+   35 |     i();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:36:5: warning: DP01: Call to deprecated function
-    C::j();
-    ^
+   36 |     C::j();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:37:5: warning: DP01: Call to deprecated function
-    C::k();
-    ^
+   37 |     C::k();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:7:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+    7 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:38:5: warning: DP01: Call to deprecated function
-    C::l();
-    ^
+   38 |     C::l();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:39:5: warning: DP01: Call to deprecated function
-    D<int>::j();
-    ^
+   39 |     D<int>::j();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:40:5: warning: DP01: Call to deprecated function
-    D<void>::k();
-    ^
+   40 |     D<void>::k();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:14:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   14 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:41:5: warning: DP01: Call to deprecated function
-    D<C>::l();
-    ^
+   41 |     D<C>::l();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 deprecated.cpp:43:5: warning: DP01: Call to deprecated function
-    E::k();
-    ^
+   43 |     E::k();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:7:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+    7 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:46:5: warning: DP01: Call to deprecated function
-    F<void>::k();
-    ^
+   46 |     F<void>::k();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:14:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   14 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:48:5: warning: DP01: Call to deprecated function
-    CC::j();
-    ^
+   48 |     CC::j();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:18:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   18 |     // !DEPRECATED!:
+      |     ^
 deprecated.cpp:49:5: warning: DP01: Call to deprecated function
-    CC::k();
-    ^
+   49 |     CC::k();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:21:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   21 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:50:5: warning: DP01: Call to deprecated function
-    CC::l();
-    ^
+   50 |     CC::l();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:18:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   18 |     // !DEPRECATED!:
+      |     ^
 deprecated.cpp:51:5: warning: DP01: Call to deprecated function
-    DD<int>::j();
-    ^
+   51 |     DD<int>::j();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:26:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   26 |     // !DEPRECATED!:
+      |     ^
 deprecated.cpp:52:5: warning: DP01: Call to deprecated function
-    DD<void>::k();
-    ^
+   52 |     DD<void>::k();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:29:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   29 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:53:5: warning: DP01: Call to deprecated function
-    DD<C>::l();
-    ^
+   53 |     DD<C>::l();
+      |     ^
 In file included from deprecated.cpp:1:
 ./dep1.h:26:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   26 |     // !DEPRECATED!:
+      |     ^
 deprecated.cpp:54:5: warning: DP01: Call to deprecated function
-    EE::j();
-    ^
+   54 |     EE::j();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:18:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   18 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:55:5: warning: DP01: Call to deprecated function
-    EE::k();
-    ^
+   55 |     EE::k();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:21:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   21 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:56:5: warning: DP01: Call to deprecated function
-    EE::l();
-    ^
+   56 |     EE::l();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:18:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   18 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:57:5: warning: DP01: Call to deprecated function
-    FF<int>::j();
-    ^
+   57 |     FF<int>::j();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:26:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   26 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:58:5: warning: DP01: Call to deprecated function
-    FF<void>::k();
-    ^
+   58 |     FF<void>::k();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:29:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   29 |         // !DEPRECATED!:
+      |         ^
 deprecated.cpp:59:5: warning: DP01: Call to deprecated function
-    FF<C>::l();
-    ^
+   59 |     FF<C>::l();
+      |     ^
 In file included from deprecated.cpp:2:
 ./dep2.h:26:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   26 |         // !DEPRECATED!:
+      |         ^
 23 warnings generated.

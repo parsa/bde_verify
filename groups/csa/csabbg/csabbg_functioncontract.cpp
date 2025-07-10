@@ -870,7 +870,7 @@ void report::critiqueContract(const FunctionDecl* func, SourceRange comment)
 
         // Warn about unquoted parameters unless they're English words.
         if (really_matched && parm_info[i].is_not_quoted) {
-            std::string mw = " " + parms[i].lower() + " ";
+            //std::string mw = " " + parms[i].lower() + " ";
             for (size_t j = first_index; j < words.size(); ++j) {
                 const Word& word = words[j];
                 if (word.parm == i &&

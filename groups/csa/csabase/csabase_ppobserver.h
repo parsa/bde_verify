@@ -10,11 +10,12 @@
 #include <clang/Lex/PPCallbacks.h>
 #include <clang/Lex/Pragma.h>
 #include <llvm/ADT/ArrayRef.h>
-#include <llvm/ADT/Optional.h>
 #include <llvm/ADT/StringRef.h>
+
 #include <stack>
 #include <string>
 #include <utils/event.hpp>
+
 namespace clang { class CommentHandler; }
 namespace clang { class FileEntry; }
 namespace clang { class IdentifierInfo; }
@@ -130,7 +131,7 @@ public:
                         llvm::StringRef                     FileName,
                         bool                                IsAngled,
                         clang::CharSourceRange              FilenameRange,
-                        llvm::Optional<clang::FileEntryRef> File,
+                        clang::OptionalFileEntryRef         File,
                         llvm::StringRef                     SearchPath,
                         llvm::StringRef                     RelativePath,
                         const clang::Module                *Imported,

@@ -78,10 +78,10 @@ struct report : Report<data>
 llvm::StringRef report::clean_name(llvm::StringRef name, std::string& buf)
 {
     llvm::StringRef blp(a.config()->toplevel_namespace());
-    if (name.startswith(blp) && name.drop_front(blp.size()).startswith("::")) {
+    if (name.starts_with(blp) && name.drop_front(blp.size()).starts_with("::")) {
         name = name.drop_front(blp.size() + 2);
     }
-    if (name.endswith("::")) {
+    if (name.ends_with("::")) {
         name = name.drop_back(2);
     }
     if (name.find("::::") != name.npos) {
@@ -135,9 +135,9 @@ llvm::StringRef report::prefer_e(llvm::StringRef s, const t_ss& sequence)
     if (last_colons != s.npos) {
         llvm::StringRef lit = s.drop_front(last_colons + 2);
         for (int i = 0; i <= 1; ++i) {
-            if (lit.startswith(s_upper_prefix[i])) {
+            if (lit.starts_with(s_upper_prefix[i])) {
                 lit = lit.drop_front(s_upper_prefix[i].size());
-                if (lit.startswith("_")) {
+                if (lit.starts_with("_")) {
                     lit = lit.drop_front(1);
                 }
                 break;
@@ -265,7 +265,7 @@ void report::operator()()
         if (auto md = p.getMacroDefinition(ii).getLocalDirective()) {
             if (a.is_component(md->getLocation())) {
                 std::string s = ii->getName().str();
-                if (!llvm::StringRef(s).startswith("INCLUDE") &&
+                if (!llvm::StringRef(s).starts_with("INCLUDE") &&
                     macros.emplace(s).second) {
                     // Replace macros with their replacement text if simple.
                     auto mi = md->getInfo();

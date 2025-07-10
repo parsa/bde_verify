@@ -1,7 +1,6 @@
 // csamisc_constantreturn.cpp                                         -*-C++-*-
 
 #include <llvm/ADT/APSInt.h>
-#include <llvm/ADT/Optional.h>
 #include <llvm/Support/Casting.h>
 
 #include <clang/AST/Decl.h>
@@ -18,6 +17,7 @@
 #include <csabase_registercheck.h>
 
 #include <iterator>
+#include <optional>
 #include <string>
 
 using namespace csabase;
@@ -47,7 +47,7 @@ static void check(Analyser& analyser, FunctionDecl const* decl)
         {
             ReturnStmt* ret(llvm::dyn_cast<ReturnStmt>(stmt));
             Expr* expr(ret->getRetValue());
-            llvm::Optional<llvm::APSInt> result;
+            std::optional<llvm::APSInt> result;
             if (!expr->isValueDependent() &&
                 (result = expr->getIntegerConstantExpr(*analyser.context())))
             {

@@ -1,5 +1,15 @@
 // csabbg_midreturn.cpp                                               -*-C++-*-
 
+#include <csabase_analyser.h>
+#include <csabase_debug.h>
+#include <csabase_diagnostic_builder.h>
+#include <csabase_location.h>
+#include <csabase_ppobserver.h>
+#include <csabase_registercheck.h>
+#include <csabase_report.h>
+#include <csabase_util.h>
+#include <csaglb_comments.h>
+
 #include <clang/AST/ASTContext.h>
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
@@ -12,25 +22,19 @@
 #include <clang/Basic/SourceLocation.h>
 #include <clang/Basic/SourceManager.h>
 #include <clang/Lex/Lexer.h>
-#include <csabase_analyser.h>
-#include <csabase_debug.h>
-#include <csabase_diagnostic_builder.h>
-#include <csabase_location.h>
-#include <csabase_ppobserver.h>
-#include <csabase_registercheck.h>
-#include <csabase_report.h>
-#include <csabase_util.h>
-#include <csaglb_comments.h>
-#include <llvm/ADT/Optional.h>
+
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/Casting.h>
-#include <stddef.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <set>
 #include <vector>
 #include <sstream>
 #include <string>
+
+#include <stddef.h>
 
 namespace csabase { class Visitor; }
 

@@ -1,5 +1,4 @@
 // csaglb_includes.cpp                                                -*-C++-*-
-
 #include <csaglb_includes.h>
 
 #include <csabase_analyser.h>
@@ -10,8 +9,10 @@
 #include <csabase_report.h>
 #include <csabase_util.h>
 
-#include <llvm/Support/Path.h>
 #include <clang/Lex/Preprocessor.h>
+
+#include <llvm/Support/Path.h>
+
 #include <utility>
 
 namespace csabase { class Visitor; }
@@ -41,7 +42,7 @@ struct report : Report<IncludesData>
                     StringRef,
                     bool,
                     CharSourceRange,
-                    Optional<FileEntryRef>,
+                    OptionalFileEntryRef,
                     StringRef,
                     StringRef,
                     const clang::Module        *,
@@ -119,7 +120,7 @@ void report::operator()(SourceLocation              HashLoc,
                         StringRef                   FileName,
                         bool                        IsAngled,
                         CharSourceRange             FilenameRange,
-                        Optional<FileEntryRef>      File,
+                        OptionalFileEntryRef        File,
                         StringRef                   SearchPath,
                         StringRef                   RelativePath,
                         const clang::Module        *Imported,

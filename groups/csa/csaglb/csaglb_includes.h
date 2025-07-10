@@ -2,11 +2,11 @@
 #ifndef INCLUDED_CSAGLB_INCLUDES
 #define INCLUDED_CSAGLB_INCLUDES
 
-#include <llvm/ADT/Optional.h>
 #include <llvm/ADT/StringRef.h>
 #include <clang/Basic/FileManager.h>
 #include <clang/Basic/SourceLocation.h>
 #include <clang/Lex/Token.h>
+
 #include <map>
 #include <vector>
 
@@ -44,7 +44,7 @@ struct IncludesData {
         clang::SourceRange                  d_definedGuard;
             // The range of the guard definition, if present, including the
             // #define.
-        llvm::Optional<clang::FileEntryRef> d_fe;
+        clang::OptionalFileEntryRef         d_fe;
             // The file entry for the included file, if supplied by an
             // InclusionDirective callback.
     };

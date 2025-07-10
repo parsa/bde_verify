@@ -93,9 +93,9 @@ bool comments::isReset(SourceRange range)
         return false;                                                 // RETURN
     }
 
-    return comment.drop_front(2).startswith("\n\n") ||
-           comment.drop_front(2).startswith("\r\r") ||
-           comment.startswith("\r\n\r\n");
+    return comment.drop_front(2).starts_with("\n\n") ||
+           comment.drop_front(2).starts_with("\r\r") ||
+           comment.starts_with("\r\n\r\n");
 }
 
 void comments::operator()(SourceRange range)

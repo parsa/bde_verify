@@ -1,99 +1,99 @@
 dept.cpp:34:5: warning: DP01: Call to deprecated function
-    h<int>();
-    ^
+   34 |     h<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:35:5: warning: DP01: Call to deprecated function
-    i<int>();
-    ^
+   35 |     i<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:36:5: warning: DP01: Call to deprecated function
-    C::j<int>();
-    ^
+   36 |     C::j<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:37:5: warning: DP01: Call to deprecated function
-    C::k<int>();
-    ^
+   37 |     C::k<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:7:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+    7 |         // !DEPRECATED!:
+      |         ^
 dept.cpp:38:5: warning: DP01: Call to deprecated function
-    C::l<int>();
-    ^
+   38 |     C::l<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:39:5: warning: DP01: Call to deprecated function
-    D<int>::j<int>();
-    ^
+   39 |     D<int>::j<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:40:5: warning: DP01: Call to deprecated function
-    D<void>::k<int>();
-    ^
+   40 |     D<void>::k<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:14:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   14 |         // !DEPRECATED!:
+      |         ^
 dept.cpp:41:5: warning: DP01: Call to deprecated function
-    D<C>::l<int>();
-    ^
+   41 |     D<C>::l<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:1:1: note: DP01: Deprecated here
-//@DEPRECATED://
-^
+    1 | //@DEPRECATED://
+      | ^
 dept.cpp:48:5: warning: DP01: Call to deprecated function
-    CC::j<int>();
-    ^
+   48 |     CC::j<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:18:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   18 |     // !DEPRECATED!:
+      |     ^
 dept.cpp:49:5: warning: DP01: Call to deprecated function
-    CC::k<int>();
-    ^
+   49 |     CC::k<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:21:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   21 |         // !DEPRECATED!:
+      |         ^
 dept.cpp:50:5: warning: DP01: Call to deprecated function
-    CC::l<int>();
-    ^
+   50 |     CC::l<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:18:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   18 |     // !DEPRECATED!:
+      |     ^
 dept.cpp:51:5: warning: DP01: Call to deprecated function
-    DD<int>::j<int>();
-    ^
+   51 |     DD<int>::j<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:26:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   26 |     // !DEPRECATED!:
+      |     ^
 dept.cpp:52:5: warning: DP01: Call to deprecated function
-    DD<void>::k<int>();
-    ^
+   52 |     DD<void>::k<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:29:9: note: DP01: Deprecated here
-        // !DEPRECATED!:
-        ^
+   29 |         // !DEPRECATED!:
+      |         ^
 dept.cpp:53:5: warning: DP01: Call to deprecated function
-    DD<C>::l<int>();
-    ^
+   53 |     DD<C>::l<int>();
+      |     ^
 In file included from dept.cpp:1:
 ./dept_sep.h:26:5: note: DP01: Deprecated here
-    // !DEPRECATED!:
-    ^
+   26 |     // !DEPRECATED!:
+      |     ^
 14 warnings generated.

@@ -43,7 +43,7 @@ struct data
     std::map<SourceRange, const LinkageSpecDecl *> d_linkages;
     std::unordered_map<
         std::string,
-        std::pair<SourceLocation, LinkageSpecDecl::LanguageIDs> >
+        std::pair<SourceLocation, LinkageSpecLanguageIDs> >
                                                    d_types;
     std::unordered_set<SourceLocation>             d_done;
 };
@@ -66,7 +66,7 @@ struct report : Report<data>
 
     void operator()(const Decl *decl);
 
-    void set_lang(SourceLocation sl, LinkageSpecDecl::LanguageIDs lang);
+    void set_lang(SourceLocation sl, LinkageSpecLanguageIDs lang);
 
     void operator()(const FunctionDecl *decl);
 
@@ -103,12 +103,12 @@ const LinkageSpecDecl *report::get_local_linkage(SourceLocation sl)
     return result;
 }
 
-void report::set_lang(SourceLocation sl, LinkageSpecDecl::LanguageIDs lang)
+void report::set_lang(SourceLocation sl, LinkageSpecLanguageIDs lang)
 {
     SourceLocation osl = sl;
     while (sl.isValid() && !get_local_linkage(sl)) {
         std::string name = llvm::sys::path::filename(m.getFilename(sl)).str();
-        if (!special.count(std::string(name)) && !d.d_types[name].second) {
+        if (!special.count(std::string(name)) && !d.d_types.contains(name)) {
             d.d_types[name] = std::make_pair(osl, lang);
         }
         sl = m.getIncludeLoc(m.getFileID(sl));
@@ -122,7 +122,7 @@ void report::operator()(const FunctionDecl *decl)
         !decl->isCXXClassMember() &&
         !decl->isExternC() &&
         !get_local_linkage(sl)) {
-        set_lang(sl, LinkageSpecDecl::lang_cxx);
+        set_lang(sl, LinkageSpecLanguageIDs::CXX);
     }
 }
 
@@ -133,7 +133,7 @@ void report::operator()(const VarDecl *decl)
         !decl->isCXXClassMember() &&
         !decl->isExternC() &&
         !get_local_linkage(sl)) {
-        set_lang(sl, LinkageSpecDecl::lang_cxx);
+        set_lang(sl, LinkageSpecLanguageIDs::CXX);
     }
 }
 
@@ -157,7 +157,7 @@ void report::operator()(const Decl *decl)
       case Decl::ClassTemplatePartialSpecialization:
       {
         SourceLocation sl = m.getExpansionLoc(decl->getLocation());
-        set_lang(sl, LinkageSpecDecl::lang_cxx);
+        set_lang(sl, LinkageSpecLanguageIDs::CXX);
       }
       default:
         ;
@@ -176,8 +176,8 @@ void report::operator()()
         llvm::StringRef file = a.get_source(f.second.d_file);
         const LinkageSpecDecl *lsd = get_linkage(fsl);
         if (!lsd ||
-            lsd->getLanguage() != LinkageSpecDecl::lang_c ||
-            d.d_types[file.str()].second != LinkageSpecDecl::lang_cxx) {
+            lsd->getLanguage() != LinkageSpecLanguageIDs::C ||
+            d.d_types[file.str()].second != LinkageSpecLanguageIDs::CXX) {
             continue;
         }
         SourceLocation sl = fsl.getExpansionLoc();

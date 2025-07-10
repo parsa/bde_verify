@@ -1,14 +1,16 @@
 // csamisc_stringadd.cpp                                              -*-C++-*-
 
-#include <llvm/ADT/APSInt.h>
-#include <llvm/ADT/Optional.h>
-#include <llvm/Support/Casting.h>
-#include <clang/AST/Expr.h>
-#include <clang/AST/OperationKinds.h>
-#include <clang/Basic/SourceLocation.h>
 #include <csabase_analyser.h>
 #include <csabase_diagnostic_builder.h>
 #include <csabase_registercheck.h>
+
+#include <clang/AST/Expr.h>
+#include <clang/AST/OperationKinds.h>
+#include <clang/Basic/SourceLocation.h>
+
+#include <llvm/ADT/APSInt.h>
+#include <llvm/Support/Casting.h>
+
 #include <string>
 
 using namespace csabase;
@@ -30,7 +32,7 @@ static bool is_addition(Analyser& analyser,
         length = lit->getByteLength();
         zero = 0u;
         value = value->IgnoreParenCasts();
-        llvm::Optional<llvm::APSInt> result =
+        std::optional<llvm::APSInt> result =
                             value->getIntegerConstantExpr(*analyser.context());
         return !result ||
                (op == BO_Add && (*result < zero || length < *result)) ||

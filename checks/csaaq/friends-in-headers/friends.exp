@@ -1,86 +1,86 @@
 In file included from friends.cpp:1:
 ./friends.h:12:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void c_function_undeclared();
-                ^
+   12 |     friend void c_function_undeclared();
+      |                 ^
 ./friends.h:15:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void c_function_declared_in_cpp();
-                ^
+   15 |     friend void c_function_declared_in_cpp();
+      |                 ^
 ./friends.h:19:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void c_function_defined_in_cpp();
-                ^
+   19 |     friend void c_function_defined_in_cpp();
+      |                 ^
 ./friends.h:23:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class c_class_undeclared;
-           ^
+   23 |     friend class c_class_undeclared;
+      |            ^
 ./friends.h:26:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class c_class_declared_in_cpp;
-           ^
+   26 |     friend class c_class_declared_in_cpp;
+      |            ^
 ./friends.h:28:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class c_class_defined_in_class_after;
-           ^
+   28 |     friend class c_class_defined_in_class_after;
+      |            ^
 ./friends.h:31:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class c_class_defined_in_cpp;
-           ^
+   31 |     friend class c_class_defined_in_cpp;
+      |            ^
 ./friends.h:35:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void c_function_template_undeclared(T);
-                                   ^
+   35 |     template <class T> friend void c_function_template_undeclared(T);
+      |                                    ^
 ./friends.h:38:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void c_function_template_declared_in_cpp(T);
-                                   ^
+   38 |     template <class T> friend void c_function_template_declared_in_cpp(T);
+      |                                    ^
 ./friends.h:42:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void c_function_template_defined_in_cpp(T);
-                                   ^
+   42 |     template <class T> friend void c_function_template_defined_in_cpp(T);
+      |                                    ^
 ./friends.h:46:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class c_class_template_undeclared;
-                                    ^
+   46 |     template <class T> friend class c_class_template_undeclared;
+      |                                     ^
 ./friends.h:49:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class c_class_template_declared_in_cpp;
-                                    ^
+   49 |     template <class T> friend class c_class_template_declared_in_cpp;
+      |                                     ^
 ./friends.h:51:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class c_class_template_defined_in_class_after;
-                                    ^
+   51 |     template <class T> friend class c_class_template_defined_in_class_after;
+      |                                     ^
 ./friends.h:54:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class c_class_template_defined_in_cpp;
-                                    ^
+   54 |     template <class T> friend class c_class_template_defined_in_cpp;
+      |                                     ^
 ./friends.h:148:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void i_function_undeclared();
-                ^
+  148 |     friend void i_function_undeclared();
+      |                 ^
 ./friends.h:151:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void i_function_declared_in_cpp();
-                ^
+  151 |     friend void i_function_declared_in_cpp();
+      |                 ^
 ./friends.h:155:17: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend void i_function_defined_in_cpp();
-                ^
+  155 |     friend void i_function_defined_in_cpp();
+      |                 ^
 ./friends.h:159:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class i_class_undeclared;
-           ^
+  159 |     friend class i_class_undeclared;
+      |            ^
 ./friends.h:162:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class i_class_declared_in_cpp;
-           ^
+  162 |     friend class i_class_declared_in_cpp;
+      |            ^
 ./friends.h:164:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class i_class_defined_in_class_after;
-           ^
+  164 |     friend class i_class_defined_in_class_after;
+      |            ^
 ./friends.h:167:12: warning: AQP01: Entities granted friendship must be declared in the same header
-    friend class i_class_defined_in_cpp;
-           ^
+  167 |     friend class i_class_defined_in_cpp;
+      |            ^
 ./friends.h:171:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void i_function_template_undeclared(T);
-                                   ^
+  171 |     template <class T> friend void i_function_template_undeclared(T);
+      |                                    ^
 ./friends.h:174:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void i_function_template_declared_in_cpp(T);
-                                   ^
+  174 |     template <class T> friend void i_function_template_declared_in_cpp(T);
+      |                                    ^
 ./friends.h:178:36: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend void i_function_template_defined_in_cpp(T);
-                                   ^
+  178 |     template <class T> friend void i_function_template_defined_in_cpp(T);
+      |                                    ^
 ./friends.h:182:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class i_class_template_undeclared;
-                                    ^
+  182 |     template <class T> friend class i_class_template_undeclared;
+      |                                     ^
 ./friends.h:185:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class i_class_template_declared_in_cpp;
-                                    ^
+  185 |     template <class T> friend class i_class_template_declared_in_cpp;
+      |                                     ^
 ./friends.h:187:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class i_class_template_defined_in_class_after;
-                                    ^
+  187 |     template <class T> friend class i_class_template_defined_in_class_after;
+      |                                     ^
 ./friends.h:190:37: warning: AQP01: Entities granted friendship must be declared in the same header
-    template <class T> friend class i_class_template_defined_in_cpp;
-                                    ^
+  190 |     template <class T> friend class i_class_template_defined_in_cpp;
+      |                                     ^
 28 warnings generated.

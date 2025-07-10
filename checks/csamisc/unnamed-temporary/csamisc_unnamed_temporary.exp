@@ -1,25 +1,25 @@
 csamisc_unnamed_temporary.t.cpp:11:5: warning: expression result unused [-Wunused-value]
-    int(5);
-    ^   ~
+   11 |     int(5);
+      |     ^   ~
 csamisc_unnamed_temporary.t.cpp:19:5: warning: expression result unused [-Wunused-value]
-    std::string(std::string("5"));
-    ^           ~~~~~~~~~~~~~~~~
+   19 |     std::string(std::string("5"));
+      |     ^           ~~~~~~~~~~~~~~~~
 csamisc_unnamed_temporary.t.cpp:16:5: warning: UT01: Unnamed object will be immediately destroyed
-    std::string("5");
-    ^
+   16 |     std::string("5");
+      |     ^
 csamisc_unnamed_temporary.t.cpp:19:5: warning: UT01: Unnamed object will be immediately destroyed
-    std::string(std::string("5"));
-    ^
+   19 |     std::string(std::string("5"));
+      |     ^
 csamisc_unnamed_temporary.t.cpp:22:5: warning: UT01: Unnamed object will be immediately destroyed
-    std::string(5, ' ');
-    ^
+   22 |     std::string(5, ' ');
+      |     ^
 csamisc_unnamed_temporary.t.cpp:25:5: warning: UT01: Unnamed object will be immediately destroyed
-    std::string(std::string(5, ' '));
-    ^
+   25 |     std::string(std::string(5, ' '));
+      |     ^
 csamisc_unnamed_temporary.t.cpp:32:10: warning: UT01: Unnamed object will be immediately destroyed
-    for (std::string(); i; std::string()) {
-         ^
+   32 |     for (std::string(); i; std::string()) {
+      |          ^
 csamisc_unnamed_temporary.t.cpp:32:28: warning: UT01: Unnamed object will be immediately destroyed
-    for (std::string(); i; std::string()) {
-                           ^
+   32 |     for (std::string(); i; std::string()) {
+      |                            ^
 8 warnings generated.

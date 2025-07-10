@@ -1,16 +1,16 @@
 csafmt_nonascii.t.cpp:1:6: warning: NA01: Non-ASCII characters
-// abÞßëcd¶¥¶×ef
-     ^~~
+    1 | // abÞßëcd¶¥¶×ef
+      |      ^~~
 csafmt_nonascii.t.cpp:1:14: warning: NA01: Non-ASCII characters
-// abÞßëcd¶¥¶×ef
-          ^~~~
+    1 | // abÞßëcd¶¥¶×ef
+      |           ^~~~
 csafmt_nonascii.t.cpp:3:5: warning: NA01: Non-ASCII characters
-    ¶¥×±
-    ^~~~
+    3 |     ¶¥×±
+      |     ^~~~
 csafmt_nonascii.t.cpp:4:5: warning: NA01: Non-ASCII characters
-    ¶¥×±®
-    ^~~~~
+    4 |     ¶¥×±®
+      |     ^~~~~
 csafmt_nonascii.t.cpp:5:5: warning: NA01: Non-ASCII characters
-    ¶¥×±®«
-    ^~~~~~
+    5 |     ¶¥×±®«
+      |     ^~~~~~
 5 warnings generated.

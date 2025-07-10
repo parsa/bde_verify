@@ -31,7 +31,7 @@ class event<void(T...)>
         }
     }
 
-    operator bool() const
+    explicit operator bool() const
     {
         return !functions_.empty();
     }

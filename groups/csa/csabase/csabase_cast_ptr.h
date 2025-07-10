@@ -12,7 +12,7 @@ class cast_ptr
 {
 public:
     template <typename P> cast_ptr(P const* p);
-    operator bool() const;
+    explicit operator bool() const;
     T const& operator*() const;
     T const* operator->() const;
     T const* get() const;

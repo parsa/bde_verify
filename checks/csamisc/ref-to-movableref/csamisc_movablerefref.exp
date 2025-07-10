@@ -1,25 +1,25 @@
 csamisc_movablerefref.t.cpp:14:32: warning: MRR01: MovableRef should be passed by value, not reference
-       bslmf::MovableRef<int> &e,
-                               ^
+   14 |        bslmf::MovableRef<int> &e,
+      |                                ^
 csamisc_movablerefref.t.cpp:15:38: warning: MRR01: MovableRef should be passed by value, not reference
-       const bslmf::MovableRef<int> &f,
-                                     ^
+   15 |        const bslmf::MovableRef<int> &f,
+      |                                      ^
 csamisc_movablerefref.t.cpp:23:30: warning: MRR01: MovableRef should be passed by value, not reference
-       bslmf::MovableRef<T> &e,
-                             ^
+   23 |        bslmf::MovableRef<T> &e,
+      |                              ^
 csamisc_movablerefref.t.cpp:24:36: warning: MRR01: MovableRef should be passed by value, not reference
-       const bslmf::MovableRef<T> &f,
-                                   ^
+   24 |        const bslmf::MovableRef<T> &f,
+      |                                    ^
 csamisc_movablerefref.t.cpp:50:25: warning: MRR01: MovableRef should be passed by value, not reference
-       MovableRef<int> &e,
-                        ^
+   50 |        MovableRef<int> &e,
+      |                         ^
 csamisc_movablerefref.t.cpp:51:31: warning: MRR01: MovableRef should be passed by value, not reference
-       const MovableRef<int> &f,
-                              ^
+   51 |        const MovableRef<int> &f,
+      |                               ^
 csamisc_movablerefref.t.cpp:59:23: warning: MRR01: MovableRef should be passed by value, not reference
-       MovableRef<T> &e,
-                      ^
+   59 |        MovableRef<T> &e,
+      |                       ^
 csamisc_movablerefref.t.cpp:60:29: warning: MRR01: MovableRef should be passed by value, not reference
-       const MovableRef<T> &f,
-                            ^
+   60 |        const MovableRef<T> &f,
+      |                             ^
 8 warnings generated.

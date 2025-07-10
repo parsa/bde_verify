@@ -116,11 +116,11 @@ void report::operator()(SourceRange range)
         c.back().setEnd(range.getEnd());
     }
     if (!d.d_dep_files.count(location.file()) &&
-        a.get_source(range).startswith("//@DEPRECATED:")) {
+        a.get_source(range).starts_with("//@DEPRECATED:")) {
         d.d_dep_files[location.file()] = range.getBegin();
     }
     if (!d.d_dep_comms.count(c.back().getBegin()) &&
-        a.get_source(range).startswith("// !DEPRECATED!:")) {
+        a.get_source(range).starts_with("// !DEPRECATED!:")) {
         d.d_dep_comms[c.back().getBegin()] = range.getBegin();
     }
 }

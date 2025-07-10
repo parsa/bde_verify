@@ -150,7 +150,7 @@ void report::operator()()
                     .getBegin()
                     .getLocWithOffset(-1));
             std::string shifted = previous.size() ? "\n" : "";
-            if (contract.startswith("    ")) {
+            if (contract.starts_with("    ")) {
                 contract = contract.drop_front(4);
             }
             size_t sep;

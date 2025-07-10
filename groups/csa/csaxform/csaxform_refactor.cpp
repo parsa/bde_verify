@@ -192,7 +192,7 @@ void report::operator()(SourceLocation loc,
             cfg = cfg.drop_front(rs[0].size()).trim();
             bool bad = true;
             r = r.trim();
-            if (r.startswith("file")) {
+            if (r.starts_with("file")) {
                 r = r.drop_front(5).drop_back(1).trim();
                 SmallVector<llvm::StringRef, 5> fs;
                 r.split(fs, ",", -1, false);
@@ -201,7 +201,7 @@ void report::operator()(SourceLocation loc,
                     v.emplace_back(fs[i].trim());
                 }
                 bad = false;
-            } else if (r.startswith("name")) {
+            } else if (r.starts_with("name")) {
                 r = r.drop_front(5).drop_back(1).trim();
                 SmallVector<llvm::StringRef, 2> ns;
                 r.split(ns, ",", -1, false);
@@ -376,7 +376,7 @@ bool report::VisitCXXRecordDecl(CXXRecordDecl *arg)
 llvm::StringRef report::clean_for_replace(llvm::StringRef s, std::string& buf)
 {
     if (s.find("::::") != s.npos) {
-        bool bec = s.endswith("::");
+        bool bec = s.ends_with("::");
         SmallVector<llvm::StringRef, 5> ns;
         s.split(ns, "::", -1, false);
         buf = llvm::join(ns.begin(), ns.end(), "::");
@@ -386,12 +386,12 @@ llvm::StringRef report::clean_for_replace(llvm::StringRef s, std::string& buf)
         s = buf;
     }
 
-    if (s.startswith("::")) {
+    if (s.starts_with("::")) {
         s = s.drop_front(2);
     }
 
     llvm::StringRef blp(a.config()->toplevel_namespace());
-    if (s.startswith(blp) && s.drop_front(blp.size()).startswith("::")) {
+    if (s.starts_with(blp) && s.drop_front(blp.size()).starts_with("::")) {
         s = s.drop_front(blp.size() + 2);
     }
 
@@ -417,7 +417,7 @@ bool report::replace(SourceRange sr, llvm::StringRef e)
             m.getSpellingLoc(sr.getBegin()), m.getSpellingLoc(sr.getEnd())));
         llvm::StringRef src = a.get_source(sr, true);
         std::string rep = i->second.str();
-        if (src.endswith("::")) {
+        if (src.ends_with("::")) {
             rep += "::";
         }
         if (a.ReplaceText(sr, rep)) {

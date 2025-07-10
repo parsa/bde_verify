@@ -1,4 +1,14 @@
 // csabbg_testdriver.cpp                                              -*-C++-*-
+#include <csabase_analyser.h>
+#include <csabase_config.h>
+#include <csabase_debug.h>
+#include <csabase_diagnostic_builder.h>
+#include <csabase_location.h>
+#include <csabase_ppobserver.h>
+#include <csabase_registercheck.h>
+#include <csabase_report.h>
+#include <csabase_util.h>
+#include <csabase_visitor.h>
 
 #include <clang/AST/Decl.h>
 #include <clang/AST/DeclBase.h>
@@ -14,33 +24,26 @@
 #include <clang/Basic/SourceLocation.h>
 #include <clang/Basic/SourceManager.h>
 #include <clang/Basic/Specifiers.h>
-#include <csabase_analyser.h>
-#include <csabase_config.h>
-#include <csabase_debug.h>
-#include <csabase_diagnostic_builder.h>
-#include <csabase_location.h>
-#include <csabase_ppobserver.h>
-#include <csabase_registercheck.h>
-#include <csabase_report.h>
-#include <csabase_util.h>
-#include <csabase_visitor.h>
-#include <ctype.h>
+
 #include <llvm/ADT/APSInt.h>
-#include <llvm/ADT/Optional.h>
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/Casting.h>
 #include <llvm/Support/Regex.h>
-#include <stddef.h>
+
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <cctype>
 #include <limits>
 #include <map>
+#include <optional>
 #include <set>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include <stddef.h>
 
 using namespace clang;
 using namespace clang::ast_matchers;
@@ -432,10 +435,10 @@ void report::get_function_names()
 {
     for (auto p : d.d_classes) {
         std::string name = p.first.str();
-        if (!p.first.startswith("::")) {
+        if (!p.first.starts_with("::")) {
             name = "::" + name;
         }
-        bool is_bsl = llvm::StringRef(name).startswith("::bsl::");
+        bool is_bsl = llvm::StringRef(name).starts_with("::bsl::");
         NamedDecl *nd = a.lookup_name(name);
         if (!nd && is_bsl) {
             nd = a.lookup_name("::std::" + name.substr(7));
@@ -1082,9 +1085,9 @@ void report::match_no_print(const BoundNodes& nodes)
     for (const Stmt *s = quiet;
          const CaseStmt *cs = a.get_parent<CaseStmt>(s);
          s = cs) {
-        llvm::Optional<llvm::APSInt> val;
+        std::optional<llvm::APSInt> val;
         if ((val = cs->getLHS()->getIntegerConstantExpr(*a.context())) &&
-            !val.getValue().isStrictlyPositive()) {
+            !val.value().isStrictlyPositive()) {
             return;                                                   // RETURN
         }
     }

@@ -19,14 +19,16 @@ define CHECKARGS
     $(foreach N,$(CHECKNAME),-cl='check $(N) on')   \
     -Wno-string-plus-int                            \
     -Wno-non-c-typedef-for-linkage                  \
-    -std=c++17                                      \
+    -std=c++20                                      \
     -D_X86INTRIN_H_INCLUDED                         \
     -D__USE_XOPEN2K8                                \
     -I $(BDE_VERIFY_DIR)/checks/include             \
+    -I/bb/bde/osubbotin/dpkg_buildall/bde_verify/build/refroot/amd64/opt/bb/lib/llvm-18.1/lib64/clang/18/include/ \
     $(BDE_VERIFY_ARGS)
 endef
 
 define CHECK
+	# $(VERBOSE) $(BDEVERIFY) $(CHECKARGS) $(basename $@) 2>&1 &> new.exp22
 	$(VERBOSE) $(BDEVERIFY) $(CHECKARGS) $(basename $@) 2>&1 | \
         diff -q - *.exp >/dev/null && echo OK $(basename $@) || \
     $(BDEVERIFY) $(CHECKARGS) $(basename $@) 2>&1 | \

@@ -81,7 +81,7 @@ void Word::set(llvm::StringRef s, size_t position)
     is_copyright     = s.equals_insensitive("copyright");
     is_that          = s.equals_insensitive("that");
     is_which         = s.equals_insensitive("which");
-    is_preposition   = prepositions.count(s) || s.endswith("ing");
+    is_preposition   = prepositions.count(s) || s.ends_with("ing");
     is_of            = s.equals_insensitive("of");
     is_punct         = s.size() == 1 && !std::isalpha(s[0] & 0xFF);
 }
@@ -118,7 +118,7 @@ void report::split(std::vector<Word> *words, llvm::StringRef comment)
             }
         }
         llvm::StringRef sub = comment.substr(i);
-        if (sub.startswith("//..\n") || sub.startswith("//..\r\n")) {
+        if (sub.starts_with("//..\n") || sub.starts_with("//..\r\n")) {
             i += 4 - 1;
             if (in_code) {
                 words->push_back(Word());
@@ -132,7 +132,7 @@ void report::split(std::vector<Word> *words, llvm::StringRef comment)
         if (in_code) {
             continue;
         }
-        if (sub.startswith("//")) {
+        if (sub.starts_with("//")) {
             i += 2 - 1;
             continue;
         }

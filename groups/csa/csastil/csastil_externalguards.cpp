@@ -57,7 +57,7 @@ static void
 onIfndef(Analyser* analyser, SourceLocation where, Token const& token)
 {
     llvm::StringRef guard = token.getIdentifierInfo()->getName();
-    if (!guard.startswith("INCLUDE")) {
+    if (!guard.starts_with("INCLUDE")) {
         guard = llvm::StringRef();
     }
     analyser->attachment<ExternalGuards>().d_conditions.push(

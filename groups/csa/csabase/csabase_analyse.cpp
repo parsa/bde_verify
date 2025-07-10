@@ -186,11 +186,13 @@ AnalyseConsumer::HandleTranslationUnit(ASTContext&)
         Rewriter::buffer_iterator b = rw.buffer_begin();
         Rewriter::buffer_iterator e = rw.buffer_end();
         for (; b != e; b++) {
-            const FileEntry *fe = m.getFileEntryForID(b->first);
-            if (!fe) {
+            OptionalFileEntryRef ofer = m.getFileEntryRefForID(b->first);
+            if (!ofer) {
                 continue;
             }
-            SourceLocation loc = m.translateFileLineCol(fe, 1, 1);
+            const FileEntryRef& fer = *ofer;
+
+            SourceLocation loc = m.translateFileLineCol(&fer.getFileEntry(), 1, 1);
             if (analyser_.diagnose() == "component") {
                 if (!analyser_.is_component(loc)) {
                     continue;
@@ -207,7 +209,7 @@ AnalyseConsumer::HandleTranslationUnit(ASTContext&)
                 }
             }
             std::string rewritten_file =
-                analyser_.get_rewrite_file(fe->getName().str());
+                analyser_.get_rewrite_file(fer.getName().str());
             const int MAX_TRIES = 10;
             int tries;
             llvm::SmallVector<char, 256> path;
@@ -299,25 +301,25 @@ bool PluginAction::ParseArgs(CompilerInstance const& compiler,
         {
             diagnose_ = "main";
         }
-        else if (arg.startswith("diagnose=")) {
+        else if (arg.starts_with("diagnose=")) {
             diagnose_ = arg.substr(9).str();
         }
-        else if (arg.startswith("config=")) {
+        else if (arg.starts_with("config=")) {
             config_.push_back("load " + arg.substr(7).str());
         }
-        else if (arg.startswith("config-line=")) {
+        else if (arg.starts_with("config-line=")) {
             config_.push_back(arg.substr(12).str());
         }
-        else if (arg.startswith("tool=")) {
+        else if (arg.starts_with("tool=")) {
             tool_name_ = "[" + arg.substr(5).str() + "] ";
         }
-        else if (arg.startswith("rewrite-dir=")) {
+        else if (arg.starts_with("rewrite-dir=")) {
             rewrite_dir_ = arg.substr(12).str();
         }
-        else if (arg.startswith("rewrite-file=")) {
+        else if (arg.starts_with("rewrite-file=")) {
             rewrite_file_ = arg.substr(13).str();
         }
-        else if (arg.startswith("diff=")) {
+        else if (arg.starts_with("diff=")) {
             diff_file_ = arg.substr(5).str();
         }
         else

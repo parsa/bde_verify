@@ -3,7 +3,7 @@
 
 #define F() \
     do { \
-        extern volatile int x; \
+        extern int x; \
         ++x; \
     } while (false);
 

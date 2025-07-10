@@ -1,13 +1,5 @@
 // csamisc_spellcheck.cpp                                             -*-C++-*-
 
-#include <clang/AST/ASTContext.h>
-#include <clang/AST/Decl.h>
-#include <clang/AST/DeclBase.h>
-#include <clang/ASTMatchers/ASTMatchFinder.h>
-#include <clang/ASTMatchers/ASTMatchers.h>
-#include <clang/ASTMatchers/ASTMatchersInternal.h>
-#include <clang/Basic/SourceLocation.h>
-#include <clang/Basic/SourceManager.h>
 #include <csabase_analyser.h>
 #include <csabase_config.h>
 #include <csabase_debug.h>
@@ -16,21 +8,33 @@
 #include <csabase_registercheck.h>
 #include <csabase_report.h>
 #include <csabase_util.h>
-#include <ctype.h>
-#include <llvm/ADT/Optional.h>
+
+#include <clang/AST/ASTContext.h>
+#include <clang/AST/Decl.h>
+#include <clang/AST/DeclBase.h>
+#include <clang/ASTMatchers/ASTMatchFinder.h>
+#include <clang/ASTMatchers/ASTMatchers.h>
+#include <clang/ASTMatchers/ASTMatchersInternal.h>
+#include <clang/Basic/SourceLocation.h>
+#include <clang/Basic/SourceManager.h>
+
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/Regex.h>
-#include <stddef.h>
-#include <stdlib.h>
+
 #include <utils/array.hpp>
 #include <utils/event.hpp>
 #include <utils/function.hpp>
+
 #include <map>
 #include <set>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include <ctype.h>
+#include <stddef.h>
+#include <stdlib.h>
 
 namespace csabase { class Visitor; }
 
@@ -169,7 +173,7 @@ report::break_for_spelling(std::vector<SourceRange>* words, SourceRange range)
 {
     llvm::StringRef comment = a.get_source(range, true);
     words->clear();
-    if (comment.startswith("// close namespace ")) {
+    if (comment.starts_with("// close namespace ")) {
         return;
     }
     bool in_single_quotes = false;
@@ -230,8 +234,8 @@ report::break_for_spelling(std::vector<SourceRange>* words, SourceRange range)
         } else if (!in_single_quotes && !in_double_quotes) {
             if (c == '/' &&
                 (i == 0 || comment[i - 1] == '\n') &&
-                (comment.substr(i).startswith("//@AUTHOR:") ||
-                 comment.substr(i).startswith("//@CONTACT:"))) {
+                (comment.substr(i).starts_with("//@AUTHOR:") ||
+                 comment.substr(i).starts_with("//@CONTACT:"))) {
                 size_t j = comment.substr(i).find("\n//\n");
                 if (j == comment.npos) {
                     j = comment.substr(i).find("\n//\r\n");
