@@ -1,3 +1,11 @@
+bde-verify (1.4.0) unstable; urgency=low
+
+  * 922148e Bump internal version
+  * c345622 Move bde-verify to clang 18 (#75)
+  * 82e82f5 Fix MR01 around implicit lambda conversions {DRQS 171313583} (#69)
+
+ -- Oleg Subbotin <osubbotin@bloomberg.net>  Thu, 10 Jul 2025 21:17:51 +0000
+
 bde-verify (1.3.29) infrastructure-unstable; urgency=low
 
   * c209413 Adding which dependency (#74)
