@@ -28,7 +28,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Note that Clang transitively brings in LLVM config as REQUIRED.
-set (Clang_DIR /opt/bb/lib/llvm-18.1/lib64/cmake/clang/)
 find_package(Clang REQUIRED)
 
 message(STATUS "Found LLVM/Clang ${LLVM_PACKAGE_VERSION}")
@@ -41,7 +40,7 @@ include(AddLLVM)
 link_directories(${LLVM_LIBRARY_DIRS})
 
 set(CLANG_RESOURCE_DIR
-    "${Clang_DIR}/../../clang/${LLVM_PACKAGE_VERSION}"
+    "${Clang_DIR}/../../clang/${LLVM_VERSION_MAJOR}"
     CACHE PATH "Clang resource directory")
 file(GLOB CLANG_RESOURCE_FILES "${CLANG_RESOURCE_DIR}/include/*.*")
 
