@@ -1,3 +1,10 @@
+bde-verify (1.4.1) unstable; urgency=low
+
+  * bc2529a Bump internal version
+  * bae5792 Fix clang headers installation
+
+ -- Oleg Subbotin <osubbotin@bloomberg.net>  Mon, 28 Jul 2025 14:42:23 +0000
+
 bde-verify (1.4.0) unstable; urgency=low
 
   * 922148e Bump internal version
