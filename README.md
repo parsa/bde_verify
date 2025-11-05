@@ -1,3 +1,5 @@
+[![DPKG](https://badges.dev.bloomberg.com/live/template/unstable:bde-verify/%7B%7Bdpkg_builds_unstable.bde-verify%7D%7D)](https://dpkg.dx.bloomberg.com/sources/bde-verify?source-details-tab=distributions)
+
 # BDE Verify - A Static Checker for C++
 
 Bde_verify is a static analysis tool that verifies that source code adheres
