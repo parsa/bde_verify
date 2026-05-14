@@ -1,3 +1,11 @@
+bde-verify (1.5.0) unstable; urgency=low
+
+  * 70d9222 Bump internal version
+  * 9b1f6f5 Switch to Clang 21 (#78)
+  * 2e1148f Add DPKG badge to README (#76)
+
+ -- Oleg Subbotin <osubbotin@bloomberg.net>  Thu, 14 May 2026 11:15:28 -0400
+
 bde-verify (1.4.1) unstable; urgency=low
 
   * bc2529a Bump internal version
