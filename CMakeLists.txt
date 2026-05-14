@@ -24,9 +24,6 @@ endif()
 
 set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS True)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 # Note that Clang transitively brings in LLVM config as REQUIRED.
 find_package(Clang REQUIRED)
 

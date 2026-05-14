@@ -118,7 +118,7 @@ llvm::StringRef report::best_match(llvm::StringRef s, const t_ss& sequence)
     llvm::StringRef bm;
 
     for (llvm::StringRef m : sequence) {
-        if (!s.equals(m)) {
+        if (s != m) {
             llvm::StringRef cs = common_suffix(s, m);
             if (cs.size() > lcs.size()) {
                 lcs = cs;

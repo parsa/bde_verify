@@ -6,7 +6,7 @@ struct tccs {
     bslma::Allocator *a;
     tccs() : a(bslma::Default::allocator()) { }
     static tccs *s() { static tccs t; return &t; }
-    bslma_Allocator *l() const { return a; }
+    bslma::Allocator *l() const { return a; }
 };
 
 struct tch {

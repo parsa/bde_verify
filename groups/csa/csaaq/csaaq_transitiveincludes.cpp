@@ -500,6 +500,7 @@ struct report : public RecursiveASTVisitor<report>, Report<data>
                     llvm::StringRef              path,
                     llvm::StringRef              relpath,
                     const Module                *imported,
+                    bool                         moduleImported,
                     SrcMgr::CharacteristicKind   fileType);
         // Preprocessor callback for included file.
 
@@ -875,6 +876,7 @@ void report::operator()(SourceLocation               where,
                         llvm::StringRef              path,
                         llvm::StringRef              relpath,
                         const Module                *imported,
+                        bool                         moduleImported,
                         SrcMgr::CharacteristicKind   fileType)
 {
     FileID fid = m.getFileID(where);

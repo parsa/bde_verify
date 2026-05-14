@@ -4,7 +4,7 @@ include $(DISTRIBUTION_REFROOT)/opt/bb/share/cmake-debhelper/cmake-debhelper-mac
 include $(DISTRIBUTION_REFROOT)/opt/bb/share/gcc-build-base/gcc-build-base.mk
 
 CMAKE=$(DISTRIBUTION_REFROOT)/opt/bb/bin/cmake
-LLVM_LIBDIR_64BIT:=$(DISTRIBUTION_REFROOT)$(LIBDIR_32BIT)/llvm-18.1/lib64
+LLVM_LIBDIR_64BIT:=$(DISTRIBUTION_REFROOT)$(LIBDIR_32BIT)/llvm-21.1/lib64
 
 DEBHELPER_CMAKE_ARGS:=\
   -DCMAKE_BUILD_TYPE=Release \
@@ -19,12 +19,6 @@ BB_DEBHELPER_BUILD_TARGETS+=debian/bde-verify-stamp
 debian/bde-verify-stamp: debian/build64-stamp
 	DESTDIR=$(abspath .)/debian/bde-verify \
 	$(CMAKE) --install build64 --component bde-verify
-	touch $@
-
-BB_DEBHELPER_BUILD_TARGETS+=debian/libbde-verify-dev-stamp
-debian/libbde-verify-dev-stamp: debian/build64-stamp
-	DESTDIR=$(abspath .)/debian/libbde-verify-dev \
-	$(CMAKE) --install build64 --component bde-verify-dev
 	touch $@
 
 define BINARY_PACKAGE
@@ -42,6 +36,5 @@ debian/$(1)-binary-stamp:
 endef
 
 $(eval $(call BINARY_PACKAGE,bde-verify))
-$(eval $(call BINARY_PACKAGE,libbde-verify-dev))
 
 include $(DISTRIBUTION_REFROOT)/opt/bb/share/cmake-debhelper/cmake-debhelper-rules.mk

@@ -51,8 +51,8 @@ static void open_file(Analyser& analyser,
         expectc.resize(69, ' ');
         expectc += "-*-C-*- */";
 
-        if (   !buf.equals(expectcpp)
-            && !buf.equals(expectc)
+        if (   buf != expectcpp
+            && buf != expectc
             && buf.find_insensitive("GENERATED") == buf.npos) {
             std::pair<size_t, size_t> mcpp = mid_mismatch(buf.str(), expectcpp);
             std::pair<size_t, size_t> mc = mid_mismatch(buf.str(), expectc);

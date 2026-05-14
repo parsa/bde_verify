@@ -10,9 +10,9 @@ Build-Depends:
     gcc-build-base,
     aspell,
     aspell-en,
-    llvm-18.1,
-    clang-18.1,
-    libclang-18.1-dev,
+    llvm-21.1-dev,
+    clang-21,
+    libclang-21-dev,
     libncurses5-dev,
     libz-dev
 Standards-Version: 3.8.4
@@ -29,8 +29,3 @@ Depends: ${libgcc-Depends},
          libz1,
          libncurses5,
          which
-
-Package: libbde-verify-dev
-Depends: llvm-18.1-dev
-Architecture: any
-Description: bde_verify base library and headers

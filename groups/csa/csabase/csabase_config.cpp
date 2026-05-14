@@ -15,6 +15,7 @@
 #include <iterator>
 #include <set>
 #include <sstream>   // IWYU pragma: keep
+#include <system_error>
 #include <vector>
 #include <csabase_analyser.h>
 #include <csabase_debug.h>
@@ -101,7 +102,9 @@ csabase::Config::Config(std::vector<std::string> const& config,
             StringRef file = f.getFile();
             file = sys::path::remove_leading_dotslash(file);
             SmallVector<char, 1024> v(file.begin(), file.end());
-            sys::fs::make_absolute(v);
+            if (std::error_code ec = sys::fs::make_absolute(v)) {
+                // Keep relative path if absolute conversion fails.
+            }
             sys::path::remove_dots(v, true);
             sys::path::remove_filename(v);
             StringRef path(v.begin(), v.size());

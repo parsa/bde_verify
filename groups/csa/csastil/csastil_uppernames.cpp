@@ -97,7 +97,7 @@ void report::match_has_name(const BoundNodes& nodes)
             return;                                                   // RETURN
         }
     }
-    if (RecordDecl const* record = llvm::dyn_cast<RecordDecl>(decl)) {
+    if (CXXRecordDecl const* record = llvm::dyn_cast<CXXRecordDecl>(decl)) {
         if (record->isInjectedClassName()) {
             return;                                                   // RETURN
         }

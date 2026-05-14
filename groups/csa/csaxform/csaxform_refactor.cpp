@@ -310,7 +310,6 @@ bool report::TraverseNestedNameSpecifierLoc(NestedNameSpecifierLoc arg)
         auto k = arg.getNestedNameSpecifier()->getKind();
         switch (k) {
           case NestedNameSpecifier::TypeSpec:
-          case NestedNameSpecifier::TypeSpecWithTemplate:
             if (replace_class(
                     arg.getSourceRange(), arg.getTypeLoc().getType())) {
                 return true;                                          // RETURN

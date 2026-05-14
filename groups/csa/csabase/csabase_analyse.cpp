@@ -214,7 +214,7 @@ AnalyseConsumer::HandleTranslationUnit(ASTContext&)
             int tries;
             llvm::SmallVector<char, 256> path;
             for (tries = 0; ++tries <= MAX_TRIES;
-                 llvm::sys::fs::remove(path.data())) {
+                 (void)llvm::sys::fs::remove(path.data())) {
                 int fd;
                 std::error_code file_error =
                     llvm::sys::fs::createUniqueFile(
@@ -335,7 +335,8 @@ bool PluginAction::BeginInvocation(clang::CompilerInstance& compiler)
     compiler.getDiagnosticClient().clear();
     compiler.getDiagnostics().Reset();
     ProcessWarningOptions(compiler.getDiagnostics(),
-                          compiler.getDiagnosticOpts());
+                          compiler.getDiagnosticOpts(),
+                          *llvm::vfs::getRealFileSystem());
     return PluginASTAction::BeginInvocation(compiler);
 }
 

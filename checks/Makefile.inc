@@ -19,11 +19,11 @@ define CHECKARGS
     $(foreach N,$(CHECKNAME),-cl='check $(N) on')   \
     -Wno-string-plus-int                            \
     -Wno-non-c-typedef-for-linkage                  \
-    -std=c++20                                      \
+    -std=gnu++23                                    \
     -D_X86INTRIN_H_INCLUDED                         \
     -D__USE_XOPEN2K8                                \
-    -I $(BDE_VERIFY_DIR)/checks/include             \
-    -I/bb/bde/osubbotin/dpkg_buildall/bde_verify/build/refroot/amd64/opt/bb/lib/llvm-18.1/lib64/clang/18/include/ \
+    -I$(BDE_VERIFY_DIR)/checks/include              \
+    -I$(DISTRIBUTION_REFROOT)/opt/bb/include        \
     $(BDE_VERIFY_ARGS)
 endef
 

@@ -73,11 +73,11 @@ void Word::set(llvm::StringRef s, size_t position)
 
     word             = s;
     offset           = position;
-    is_comma         = s.equals(",");
-    is_em_dash       = s.equals("-");
-    is_period        = s.equals(".");
-    is_question_mark = s.equals("?");
-    is_semicolon     = s.equals(";");
+    is_comma         = s == ",";
+    is_em_dash       = s == "-";
+    is_period        = s == ".";
+    is_question_mark = s == "?";
+    is_semicolon     = s == ";";
     is_copyright     = s.equals_insensitive("copyright");
     is_that          = s.equals_insensitive("that");
     is_which         = s.equals_insensitive("which");

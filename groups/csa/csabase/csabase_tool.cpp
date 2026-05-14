@@ -73,9 +73,9 @@ int cc1_main(ArrayRef<const char *> Argv, const char *Argv0, void *MainAddr)
     //InitializeNativeTargetAsmPrinter();
     //InitializeNativeTargetAsmParser();
 
-    IntrusiveRefCntPtr<DiagnosticOptions> DiagOpts = new DiagnosticOptions();
+    DiagnosticOptions DiagOpts;
     TextDiagnosticBuffer *DiagsBuffer = new TextDiagnosticBuffer;
-    DiagnosticsEngine     Diags(DiagID, &*DiagOpts, DiagsBuffer);
+    DiagnosticsEngine     Diags(DiagID, DiagOpts, DiagsBuffer);
     bool                  Success = CompilerInvocation::CreateFromArgs(
         Clang->getInvocation(), Argv, Diags);
 
@@ -84,7 +84,7 @@ int cc1_main(ArrayRef<const char *> Argv, const char *Argv0, void *MainAddr)
         Clang->getHeaderSearchOpts().ResourceDir =
             CompilerInvocation::GetResourcesPath(Argv0, MainAddr);
 
-    Clang->createDiagnostics();
+    Clang->createDiagnostics(*llvm::vfs::getRealFileSystem());
     if (!Clang->hasDiagnostics())
         return 1;
 
@@ -109,26 +109,6 @@ int cc1_main(ArrayRef<const char *> Argv, const char *Argv0, void *MainAddr)
     llvm_shutdown();
 
     return !Success;
-}
-
-static void SetInstallDir(SmallVectorImpl<const char *>& argv,
-                          Driver&                        TheDriver,
-                          bool                           CanonicalPrefixes)
-{
-    SmallString<128> InstalledPath(argv[0]);
-
-    if (sys::path::filename(InstalledPath) == InstalledPath)
-        if (ErrorOr<std::string> Tmp = sys::findProgramByName(
-                sys::path::filename(InstalledPath.str())))
-            InstalledPath = *Tmp;
-
-    // FIXME: We don't actually canonicalize this, we just make it absolute.
-    if (CanonicalPrefixes)
-        sys::fs::make_absolute(InstalledPath);
-
-    InstalledPath = sys::path::parent_path(InstalledPath);
-    if (sys::fs::exists(InstalledPath.c_str()))
-        TheDriver.setInstalledDir(InstalledPath);
 }
 
 static int ExecuteCC1Tool(ArrayRef<const char *> argv, StringRef Tool)
@@ -326,28 +306,28 @@ int csabase::run(int argc_, const char **argv_)
         *ForVersion << Name << " version " BDE_VERIFY_VERSION " based on\n";
     }
 
-    IntrusiveRefCntPtr<DiagnosticOptions> DiagOpts = new DiagnosticOptions;
+    DiagnosticOptions DiagOpts;
     const OptTable &Opts = getDriverOptTable();
     unsigned MissingIndex, MissingCount;
     InputArgList Args = Opts.ParseArgs(argv, MissingIndex, MissingCount);
-    (void)ParseDiagnosticArgs(*DiagOpts, Args);
+    (void)ParseDiagnosticArgs(DiagOpts, Args);
 
     TextDiagnosticPrinter *DiagClient =
-        new TextDiagnosticPrinter(errs(), &*DiagOpts);
+        new TextDiagnosticPrinter(errs(), DiagOpts);
     DiagClient->setPrefix(ExFile.str());
 
     IntrusiveRefCntPtr<DiagnosticIDs> DiagID(new DiagnosticIDs());
 
-    DiagnosticsEngine Diags(DiagID, &*DiagOpts, DiagClient);
+    DiagnosticsEngine Diags(DiagID, DiagOpts, DiagClient);
 
-    if (!DiagOpts->DiagnosticSerializationFile.empty()) {
+    if (!DiagOpts.DiagnosticSerializationFile.empty()) {
         auto SerializedConsumer = clang::serialized_diags::create(
-                      DiagOpts->DiagnosticSerializationFile, &*DiagOpts, true);
+                      DiagOpts.DiagnosticSerializationFile, DiagOpts, true);
         Diags.setClient(new ChainedDiagnosticConsumer(
             Diags.takeClient(), std::move(SerializedConsumer)));
     }
 
-    ProcessWarningOptions(Diags, *DiagOpts, false);
+    ProcessWarningOptions(Diags, DiagOpts, *llvm::vfs::getRealFileSystem(), false);
 
     Driver TheDriver(Path, sys::getDefaultTargetTriple(), Diags);
 
@@ -359,8 +339,6 @@ int csabase::run(int argc_, const char **argv_)
     //CCF(TheDriver, CCPrintHeaders, CC_PRINT_HEADERS);
     //CCF(TheDriver, CCLogDiagnostics, CC_LOG_DIAGNOSTICS);
 #undef CCF
-
-    SetInstallDir(argv, TheDriver, CanonicalPrefixes);
 
     std::unique_ptr<Compilation> C(TheDriver.BuildCompilation(argv));
     int                          Res = 0;

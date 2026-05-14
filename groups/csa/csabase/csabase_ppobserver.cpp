@@ -577,12 +577,13 @@ void csabase::PPObserver::InclusionDirective(
                                     OptionalFileEntryRef         File,
                                     llvm::StringRef              SearchPath,
                                     llvm::StringRef              RelativePath,
-                                    const Module                *Imported,
+                                    const Module                *SuggestedModule,
+                                    bool                         ModuleImported,
                                     SrcMgr::CharacteristicKind   FileType)
 {
     onPPInclusionDirective(HashLoc, IncludeTok, FileName, IsAngled,
                            FilenameRange, File, SearchPath, RelativePath,
-                           Imported, FileType);
+                           SuggestedModule, ModuleImported, FileType);
 
     do_include_file(HashLoc, IsAngled, FileName.str());
     //-dk:TODO make constructive use of this...

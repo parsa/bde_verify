@@ -684,6 +684,10 @@ void report::match_nested_allocator_trait(const BoundNodes& nodes)
 
     if (type.find("bslalg::struct TypeTraitUsesBslmaAllocator::"
                   "NestedTraitDeclaration<") == 0 ||
+        type.find("bslalg::TypeTraitUsesBslmaAllocator::"
+                  "NestedTraitDeclaration<") == 0 ||
+        type.find("BloombergLP::bslalg::TypeTraitUsesBslmaAllocator::"
+                  "NestedTraitDeclaration<") == 0 ||
         type.find("bslalg_TypeTraitUsesBslmaAllocator::"
                   "NestedTraitDeclaration<") == 0 ||
         type.find("bdealg_TypeTraitUsesBdemaAllocator::"
@@ -826,13 +830,13 @@ void report::force_implicit_definitions(const CXXRecordDecl *record)
             !c->isDeleted() &&
             !c->doesThisDeclarationHaveABody()) {
             switch (a.sema().getSpecialMember(c)) {
-              case Sema::CXXDefaultConstructor:
+              case CXXSpecialMemberKind::DefaultConstructor:
                 a.sema().DefineImplicitDefaultConstructor(c->getBeginLoc(), c);
                 break;
-              case Sema::CXXCopyConstructor:
+              case CXXSpecialMemberKind::CopyConstructor:
                 a.sema().DefineImplicitCopyConstructor(c->getBeginLoc(), c);
                 break;
-              case Sema::CXXMoveConstructor:
+              case CXXSpecialMemberKind::MoveConstructor:
                 a.sema().DefineImplicitMoveConstructor(c->getBeginLoc(), c);
                 break;
               default:

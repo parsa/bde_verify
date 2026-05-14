@@ -28,7 +28,7 @@ std::map<std::string, std::set<unsigned>>
 csabase::DiagnosticFilter::DiagnosticFilter(Analyser const&    analyser,
                                             std::string        diagnose,
                                             DiagnosticOptions& options)
-: TextDiagnosticPrinter(errs(), &options)
+: TextDiagnosticPrinter(errs(), options)
 , d_analyser(&analyser)
 , d_diagnose(diagnose)
 , d_prev_handle(false)

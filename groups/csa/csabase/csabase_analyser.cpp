@@ -206,7 +206,7 @@ bool csabase::Analyser::is_source(std::string const& path) const
 {
     FileName fn(path);
     for (int i = 0; i < NSS; ++i) {
-        if (fn.extension().equals(source_suffixes[i])) {
+        if (fn.extension() == source_suffixes[i]) {
             return true;                                              // RETURN
         }
     }
@@ -217,7 +217,7 @@ bool csabase::Analyser::is_header(std::string const& path) const
 {
     FileName fn(path);
     for (int i = 0; i < NSS; ++i) {
-        if (fn.extension().equals(header_suffixes[i])) {
+        if (fn.extension() == header_suffixes[i]) {
             return true;                                              // RETURN
         }
     }
@@ -230,7 +230,7 @@ void csabase::Analyser::toplevel(std::string const& path)
     toplevel_ = fn.full().str();
     prefix_ = fn.full().str();
     for (int i = 0; i < NSS; ++i) {
-        if (fn.extension().equals(source_suffixes[i])) {
+        if (fn.extension() == source_suffixes[i]) {
             prefix_ = fn.prefix().str();
             break;
         }
@@ -260,7 +260,7 @@ bool csabase::Analyser::is_component_header(std::string const& name) const
     FileName fn(name);
 
     for (int i = 0; i < NHS; ++i) {
-        if (fn.extension().equals(header_suffixes[i])) {
+        if (fn.extension() == header_suffixes[i]) {
             if (fn.component() == component_) {
                 return is_component_header_[name] = true;             // RETURN
             }
@@ -570,7 +570,7 @@ namespace
                                    colons == name.npos
                                    ? Sema::LookupUsingDeclName
                                    : Sema::LookupNestedNameSpecifierName,
-                                   Sema::ForExternalRedeclaration);
+                                   RedeclarationKind::ForExternalRedeclaration);
         result.suppressDiagnostics();
 
         if (sema.LookupQualifiedName(result, context) &&

@@ -46,6 +46,7 @@ struct report : Report<IncludesData>
                     StringRef,
                     StringRef,
                     const clang::Module        *,
+                    bool,
                     SrcMgr::CharacteristicKind);
 };
 
@@ -124,6 +125,7 @@ void report::operator()(SourceLocation              HashLoc,
                         StringRef                   SearchPath,
                         StringRef                   RelativePath,
                         const clang::Module        *Imported,
+                        bool                        ModuleImported,
                         SrcMgr::CharacteristicKind  FileType)
 {
     SourceRange key(FilenameRange.getBegin().getLocWithOffset(1),

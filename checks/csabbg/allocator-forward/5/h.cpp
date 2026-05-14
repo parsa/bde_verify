@@ -1,4 +1,4 @@
-#include <bdeut_nullablevalue.h>
+#include <bdlb_nullablevalue.h>
 #include <bslma_allocator.h>
 #include <bsls_types.h>
 #include <bsl_string.h>
@@ -6,8 +6,8 @@
 using namespace BloombergLP;
 
 struct X {
-    bdeut_NullableValue<bsls::Types::Uint64> u;
-    bdeut_NullableValue<bsl::string> s;
+    bdlb::NullableValue<bsls::Types::Uint64> u;
+    bdlb::NullableValue<bsl::string> s;
     X(bslma::Allocator *a = 0) : s(a) { }
     X(const X& o, bslma::Allocator *a = 0) : u(o.u), s(o.s, a) { }
     BSLMF_NESTED_TRAIT_DECLARATION(X, bslma::UsesBslmaAllocator);
