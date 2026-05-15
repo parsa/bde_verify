@@ -1,3 +1,9 @@
+bde-verify (1.5.1) unstable; urgency=low
+
+  * 910e04d Fix compilation on sunos
+
+ -- Oleg Subbotin <osubbotin@bloomberg.net>  Fri, 15 May 2026 15:52:37 +0000
+
 bde-verify (1.5.0) unstable; urgency=low
 
   * 70d9222 Bump internal version
