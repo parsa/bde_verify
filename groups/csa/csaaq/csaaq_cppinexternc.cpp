@@ -108,7 +108,8 @@ void report::set_lang(SourceLocation sl, LinkageSpecLanguageIDs lang)
     SourceLocation osl = sl;
     while (sl.isValid() && !get_local_linkage(sl)) {
         std::string name = llvm::sys::path::filename(m.getFilename(sl)).str();
-        if (!special.count(std::string(name)) && !d.d_types.contains(name)) {
+        if (!special.count(std::string(name)) &&
+            (d.d_types.find(name) == d.d_types.end())) {
             d.d_types[name] = std::make_pair(osl, lang);
         }
         sl = m.getIncludeLoc(m.getFileID(sl));
